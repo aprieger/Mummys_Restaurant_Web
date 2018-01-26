@@ -23,6 +23,6 @@ public class CreditCardDAOImpl implements CreditCardDAO {
     
     public List getAllRecords() 
     {        
-        return jdbcTemplate.query ( "select * from CREDIT_CARDS Where Credit_ID = 1", new CreditCardRowMapper());
+        return jdbcTemplate.query ( "select * from CREDIT_CARDS", new CreditCardRowMapper());
     }
 }
