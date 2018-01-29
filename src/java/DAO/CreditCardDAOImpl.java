@@ -31,4 +31,10 @@ public class CreditCardDAOImpl implements CreditCardDAO {
         System.out.println(User_Id);
         return jdbcTemplate.query ( "select * from CREDIT_CARDS where CUSTOMER_ID = "+User_Id+"", new CreditCardRowMapper());
     }
+    
+    public List getAllRecordsByCreditId(int Credit_Id) 
+    {   
+        System.out.println(Credit_Id);
+        return jdbcTemplate.query ( "select * from CREDIT_CARDS where CUSTOMER_ID = "+Credit_Id+"", new CreditCardRowMapper());
+    }
 }
