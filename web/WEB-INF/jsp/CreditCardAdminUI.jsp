@@ -14,23 +14,31 @@
     </head>
     <body>
         <h1>Credit Card Admin UI</h1>
-        <form:form method="POST" commandName="CreditCard"> 
-        <table> 
-            <tr> 
-                <td>User Name :</td> 
-                <td><form:input path="username" /></td> 
-                <td><form:errors path="username" cssClass="error" /></td>
-            </tr> 
-            <tr> 
-                <td>Password :</td> 
-                <td><form:password path="password" /></td> 
-                <td><form:errors path="password" cssClass="error" /></td>
-            </tr> 
-            <tr> 
-                <td colspan="2">
-                <input type="submit"></td> 
-            </tr> 
-        </table> 
-        </form:form>
+        <table>
+            <tr>
+                <td><p><a href="CreditCardAdminUI1.htm">1. View all cards</a></p></td>
+            </tr>
+            <tr>
+                <td><p><a href="">2. Get Card by User ID</a></p></td>
+            </tr>
+            <tr>
+                <td><p><a href="">3. Get Card by Credit ID</a></p></td>
+            </tr>
+            <tr>
+                <td><p><a href="">4. Delete Card by Credit ID</a></p></td>
+            </tr>
+            <tr>
+                <td><p><a href="">5. Delete Card by Customer ID</a></p></td>
+            </tr>
+            
+        </table>
     </body>
 </html>
+
+
+
+
+<!--
+
+
+-->
