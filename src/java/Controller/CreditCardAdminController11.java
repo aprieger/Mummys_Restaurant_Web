@@ -20,22 +20,21 @@ import org.springframework.web.servlet.mvc.SimpleFormController;
 //@RequestMapping("/CreditCardAdminUI")
 public class CreditCardAdminController11 extends SimpleFormController {
 
-    public CreditCardAdminController11() {
+    //public CreditCardAdminController11() {
         
-        setCommandClass(CreditCard.class);
-        setCommandName("CreditCard");
+        //setCommandClass(CreditCard.class);
+        //setCommandName("CreditCard");
         
-    }
-    
+    //}
+    /*
     @Override
     public ModelAndView onSubmit(Object command) throws Exception{
         //userManager.add(user);
         LinkedList<CreditCard> listOfCards = new LinkedList<>();
-        
         ApplicationContext ctx=new ClassPathXmlApplicationContext("../../WEB-INF/applicationContext.xml");
         CreditCardDAOImpl cc=(CreditCardDAOImpl)ctx.getBean("CreditCardDAOImpl");
         listOfCards = (LinkedList) cc.getAllRecords();
-        
-                return new ModelAndView("CreditCardAdminUI11","listOfCards",listOfCards);
-    }    
+        return new ModelAndView("CreditCardAdminUI11","listOfCards",listOfCards);
+    } 
+*/
 }

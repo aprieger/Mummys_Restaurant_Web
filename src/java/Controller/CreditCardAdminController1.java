@@ -13,12 +13,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
-/**
- *
- * @author syntel
- */
-//@Controller
-//@RequestMapping("/CreditCardAdminUI")
+
+
 public class CreditCardAdminController1 extends SimpleFormController {
 
     public CreditCardAdminController1() {

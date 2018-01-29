@@ -11,16 +11,6 @@
     <body>
         <h1>Welcome to Mummy's restaurant</h1>
         <p><a href="CreditCardUserUI.htm">Credit Cards UI Page</a></p>
-        <p><a href="CreditCardAdminUI.htm">Credit Admin UI Page</a></p>   
-        
-        <script>
-            
-            for(var b = 0; b<100;b++)
-            {
-                document.write("<p>this is javascript</p>");
-                
-            }
-        </script>
-        
+        <p><a href="CreditCardAdminUI.htm">Credit Admin UI Page</a></p>           
     </body>
 </html>

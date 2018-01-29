@@ -16,10 +16,6 @@
         <form:form method="POST" commandName="CreditCard"> 
             <table>
                 <tr> 
-                    <td> <form:input path="username" /></td>
-                    <td><form:errors path="password" cssClass="error" /></td>
-                </tr>
-                <tr> 
                     <td colspan="2"><input type="submit"></td> 
                 </tr> 
             </table> 
