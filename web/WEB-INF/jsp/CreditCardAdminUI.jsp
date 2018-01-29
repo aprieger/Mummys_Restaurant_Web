@@ -13,6 +13,7 @@
         <title>CreditCardAdminUI</title>
     </head>
     <body>
+        <a href="index.htm">Back to index</a>
         <h1>Credit Card Admin UI</h1>
         <table>
             <tr>
@@ -28,7 +29,7 @@
                 <td><p><a href="CreditCardAdminUI4.htm">4. Delete Card by Credit ID</a></p></td>
             </tr>
             <tr>
-                <td><p><a href="">5. Delete Card by Customer ID</a></p></td>
+                <td><p><a href="CreditCardAdminUI5.htm">5. Delete Card by Customer ID</a></p></td>
             </tr>
             
         </table>

@@ -5,6 +5,7 @@
  */
 package DAO;
 
+import domain.CreditCard;
 import java.util.List;
 import javax.sql.DataSource;
 import org.springframework.dao.DataAccessException;
@@ -51,5 +52,24 @@ public class CreditCardDAOImpl implements CreditCardDAO {
         System.out.println(Credit_Id);
         
         jdbcTemplate.execute ("UPDATE CREDIT_CARDS SET IS_DELETED=1 where CUSTOMER_ID = "+Credit_Id+"");    
+    }
+    
+    public void addRecord(CreditCard c)
+    {
+        c.setCUSTOMER_ID(1); //NEEDS to be passed a real value
+        c.setCREDIT_ID(jdbcTemplate.queryForInt("Select MAX (CREDIT_ID) from Credit_cards")+1);
+        
+        jdbcTemplate.execute("insert into credit_cards values ( "
+                + c.getCREDIT_ID()+" ,"
+                + c.getCUSTOMER_ID()+" ,"
+                + c.getCARD_NUMBER()+" ,'"
+                + c.getBRAND()+"' ,"
+                + c.getSECURITY_NUMBER()+" ,'"
+                + c.getEXPERATION_DATE()+"' ,'"
+                + c.getNAME_ON_CARD()+"' ,'"
+                + c.getSTREET()+"' ,'"
+                + c.getCITY()+"' ,"
+                + c.getAREA_CODE()+" ,"
+                + 0 +")");
     }
 }

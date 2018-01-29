@@ -33,6 +33,7 @@
                 <prop key="CreditCardAdminUI33.htm">CreditCardAdminController33</prop>
                 <prop key="CreditCardAdminUI4.htm">CreditCardAdminController4</prop>
                 <prop key="CreditCardAdminUI4.htm">CreditCardAdminController4</prop>
+                <prop key="CreditCardUserUI1.htm">CreditCardUserController1</prop>
                 
             </props>
         </property>
@@ -93,6 +94,11 @@
           p:formView="CreditCardAdminUI5"
           p:validator-ref="CreditCardAdmin5Validator"    />
     
+    <bean name="CreditCardUserController1"
+          class="Controller.CreditCardUserController1"
+          p:formView="CreditCardUserUI1"
+          p:validator-ref="CreditCardUser1Validator"    />
+    
     
     <bean name="CreditCardUserController"
           class="Controller.CreditCardUserController"
@@ -106,6 +112,7 @@
     <bean id="CreditCardAdmin3Validator" class="Validator.CreditCardAdmin3Validator" />
     <bean id="CreditCardAdmin4Validator" class="Validator.CreditCardAdmin4Validator" />
     <bean id="CreditCardAdmin5Validator" class="Validator.CreditCardAdmin5Validator" />
+    <bean id="CreditCardUser1Validator" class="Validator.CreditCardUser1Validator" />
     
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource" p:basename="messages" />
 </beans>
