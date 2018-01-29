@@ -7,6 +7,7 @@ package DAO;
 
 import java.util.List;
 import javax.sql.DataSource;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
@@ -23,18 +24,32 @@ public class CreditCardDAOImpl implements CreditCardDAO {
     
     public List getAllRecords() 
     {        
-        return jdbcTemplate.query ( "select * from CREDIT_CARDS", new CreditCardRowMapper());
+        return jdbcTemplate.query ( "select * from CREDIT_CARDS where not is_deleted = 1", new CreditCardRowMapper());
     }
     
     public List getAllRecordsByUserId(int User_Id) 
     {   
         System.out.println(User_Id);
-        return jdbcTemplate.query ( "select * from CREDIT_CARDS where CUSTOMER_ID = "+User_Id+"", new CreditCardRowMapper());
+        return jdbcTemplate.query ( "select * from CREDIT_CARDS where CUSTOMER_ID = "+User_Id+" And not IS_DELETED = 1", new CreditCardRowMapper());
     }
     
     public List getAllRecordsByCreditId(int Credit_Id) 
     {   
         System.out.println(Credit_Id);
-        return jdbcTemplate.query ( "select * from CREDIT_CARDS where CUSTOMER_ID = "+Credit_Id+"", new CreditCardRowMapper());
+        return jdbcTemplate.query ( "select * from CREDIT_CARDS where CUSTOMER_ID = "+Credit_Id+" And not IS_DELETED = 1", new CreditCardRowMapper());
+    }
+    
+    public void deleteAllRecordsByUserId(int User_Id) 
+    {   
+        System.out.println(User_Id);
+        
+        jdbcTemplate.execute ("UPDATE CREDIT_CARDS SET IS_DELETED=1 where CUSTOMER_ID = "+User_Id+"");    
+    } 
+    
+    public void deleteAllRecordsByCreditId(int Credit_Id) 
+    {   
+        System.out.println(Credit_Id);
+        
+        jdbcTemplate.execute ("UPDATE CREDIT_CARDS SET IS_DELETED=1 where CUSTOMER_ID = "+Credit_Id+"");    
     }
 }

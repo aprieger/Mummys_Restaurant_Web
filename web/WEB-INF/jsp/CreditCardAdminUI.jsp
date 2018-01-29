@@ -25,7 +25,7 @@
                 <td><p><a href="CreditCardAdminUI3.htm">3. Get Card by Credit ID</a></p></td>
             </tr>
             <tr>
-                <td><p><a href="">4. Delete Card by Credit ID</a></p></td>
+                <td><p><a href="CreditCardAdminUI4.htm">4. Delete Card by Credit ID</a></p></td>
             </tr>
             <tr>
                 <td><p><a href="">5. Delete Card by Customer ID</a></p></td>
