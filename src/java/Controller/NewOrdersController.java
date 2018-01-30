@@ -32,11 +32,6 @@ public class NewOrdersController extends SimpleFormController{
         setCommandName ("newOrders");
     }
     
-    /*@RequestMapping(value="/seeAllOrders", method=RequestMethod.GET)
-    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        return new ModelAndView("newOrders", "orderDetails", orderDAO.getOrdersByOrderID(Integer.parseInt(request.getParameter("orderID"))).get(0));
-    }*/
-    
     @Override
     protected ModelAndView onSubmit (Object command) throws Exception{
         Orders newOrder=(Orders)command;

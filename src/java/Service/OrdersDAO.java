@@ -15,8 +15,8 @@ public interface OrdersDAO {
     public List getAllOrders();
     public void insertNewOrder(Orders ordersObject);
     public void updateOrderRow(Orders ordersObject);
+    public void deleteOrder(int orderID);
     public List idOrdersGenerator();
     public List getOrdersByOrderID(int orderID);
-    public void delete
 }
 

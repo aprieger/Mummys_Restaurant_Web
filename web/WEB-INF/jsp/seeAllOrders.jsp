@@ -36,7 +36,7 @@
             tbody tr.selected td {
               background-color: green;
             }
-            button{
+            button input{
                 font-size: 10px;
                 padding: 5px;
                 width: 75%;
@@ -79,8 +79,11 @@
                         <td>${order.orderDate}</td>
                         <td>${order.orderStatus}</td>
                         <td>
-                            <a href="newOrders.htm?orderID=${order.orderID}"><button id="editButton" >Edit</button></a>
-                            <button id="deleteButton">Delete</button>
+                            <a href="editOrder.htm?orderID=${order.orderID}"><button id="editButton">Edit</button></a>
+                            <form:form method="POST" action="${userActionUrl}" modelAttribute="orderInfo">
+                                <form:input path="orderID" type="hidden" name="orderID" value="${order.orderID}" /> 
+                                <input type="submit" value="Delete">
+                            </form:form>
                         </td>
                     </tr>
                 </c:forEach>

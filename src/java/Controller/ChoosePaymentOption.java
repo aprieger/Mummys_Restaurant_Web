@@ -19,22 +19,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
 /**
  *
  * @author syntel
  */
 @Controller
-@RequestMapping("/seeAllOrders")
-public class SeeAllOrdersController{
+@RequestMapping("/choosePaymentOption")
+public class ChoosePaymentOption {
     
     private OrdersDAO ordersDAO;
+    private PkgOrderDAO pkgOrderDAO;
     
     public void setOrdersDAO(OrdersDAO ordersDAO) {
         this.ordersDAO = ordersDAO;
     }
     
-    @RequestMapping(value = "/seeAllOrders", method = RequestMethod.GET)
+    public void setPkgOrderDAO (PkgOrderDAO pkgOrderDAO) {
+        this.pkgOrderDAO = pkgOrderDAO;
+    }
+    
+    @RequestMapping(value = "/choosePaymentOption", method = RequestMethod.GET)
     public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
         Orders order = new Orders();
         //establishes an empty vessel that updated information goes into in seeAllOrders.jsp
@@ -48,4 +52,5 @@ public class SeeAllOrdersController{
         ordersDAO.deleteOrder(order.getOrderID());
         return "redirect:/seeAllOrders.htm";
     }
+    
 }

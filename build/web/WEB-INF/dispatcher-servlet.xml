@@ -22,6 +22,7 @@
                 <prop key="index.htm">indexController</prop>
                 <prop key="seeAllOrders.htm">seeAllOrdersController</prop>
                 <prop key="newOrders.htm">newOrdersController</prop>
+                <prop key="editOrder.htm">editOrderController</prop>
             </props>
         </property>
     </bean>
@@ -37,13 +38,20 @@
     <bean name="indexController"
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
           p:viewName="index" />
+    
     <bean name="newOrdersController"
           class="Controller.NewOrdersController"
           p:formView="newOrders"
           p:ordersDAO-ref="ordersDAO"/>
+    
+    <bean name="editOrderController"
+          class="Controller.EditOrderController"
+          p:ordersDAO-ref="ordersDAO" />
+    
     <bean name="seeAllOrdersController"
           class="Controller.SeeAllOrdersController"
           p:ordersDAO-ref="ordersDAO" />
+    
     <bean name="ordersDAO" 
           class="Service.OrdersDAOImpl" />
 
