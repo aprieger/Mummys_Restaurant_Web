@@ -1,14 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package Validator;
-
-/**
- *
- * @author LS5002117
- */
-
 
 import domain.CreditCard;
 import org.springframework.validation.Errors;

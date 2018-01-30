@@ -6,6 +6,9 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%> 
+<%
+    session.getAttribute("Sname");
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,6 +18,7 @@
     <body>
         <a href="index.htm">Back to index</a>
         <h1>Credit Card Admin UI</h1>
+        <h1>${Sname}</h1>
         <table>
             <tr>
                 <td><p><a href="CreditCardUserUI1.htm">1. Add a new card </a></p></td>

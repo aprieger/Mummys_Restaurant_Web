@@ -2,7 +2,6 @@ package DAO;
 
 import domain.CreditCard;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.RowMapperResultSetExtractor;
 import java.sql.*;
 
  class CreditCardRowMapper implements RowMapper {
@@ -21,7 +20,6 @@ import java.sql.*;
         e.setSTREET(rs.getString("STREET")); 
         e.setCITY(rs.getString("CITY")); 
         e.setAREA_CODE(rs.getInt("AREA_CODE")); 
-	
 	return e;
         }      
 }

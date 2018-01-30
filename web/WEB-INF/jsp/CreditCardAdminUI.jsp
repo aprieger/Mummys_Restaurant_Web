@@ -6,6 +6,10 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%> 
+<%
+String name = "session value";
+session.setAttribute("Sname", name);
+%>
 <!DOCTYPE html>
 <html>
     <head>
