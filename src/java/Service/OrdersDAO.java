@@ -18,5 +18,6 @@ public interface OrdersDAO {
     public void deleteOrder(int orderID);
     public List idOrdersGenerator();
     public List getOrdersByOrderID(int orderID);
+    public double getFullPrice(int customerID);
 }
 
