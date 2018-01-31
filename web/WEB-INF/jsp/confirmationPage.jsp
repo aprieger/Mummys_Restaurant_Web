@@ -39,7 +39,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <a href="receiptPage.htm"><button id="toCreditCard">Confirm Order</button></a>
+                            <a href="receiptPage.htm"><button id="toReceipt">Confirm Order</button></a>
                         </td>
                         <td>
                             <a href="menu.htm"><button id="">Cancel/Delete Orders</button></a>
