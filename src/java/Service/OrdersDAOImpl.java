@@ -42,7 +42,7 @@ public class OrdersDAOImpl implements OrdersDAO{
     public double getFullPrice(int customerID){
         String query = "SELECT Price_Per_Pkg*Quantity AS PRODUCT FROM PkgOrders "
                 + "WHERE Is_Open=0 AND Customer_Id = " + customerID;
-        return jdbcTemplate.query(Double.parseDouble(query.toString()));
+        return jdbcTemplate.query(query);
     }
     
     @Override
