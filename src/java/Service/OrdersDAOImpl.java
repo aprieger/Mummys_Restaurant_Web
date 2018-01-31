@@ -39,13 +39,6 @@ public class OrdersDAOImpl implements OrdersDAO{
     }
     
     @Override
-    public double getFullPrice(int customerID){
-        String query = "SELECT Price_Per_Pkg*Quantity AS PRODUCT FROM PkgOrders "
-                + "WHERE Is_Open=0 AND Customer_Id = " + customerID;
-        return jdbcTemplate.query(query);
-    }
-    
-    @Override
     public void updateOrderRow(Orders order) {
         String query = "update ORDERS "
                 + "SET CUSTOMER_ID = " + order.getCustomerID()
