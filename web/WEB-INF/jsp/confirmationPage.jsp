@@ -5,13 +5,47 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Confirmation</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <table>
+            <caption class="pkgOrderView">Complete Your Order :)</caption>
+            <thead>
+                <tr>
+                    <th>Package Name</th>
+                    <th>Quantity</th>
+                    <th>Price Per Pack</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach items="${pkgOrderInfo}" var="pkg">
+                    <tr>
+                        <td>${pkg.pName}</td>
+                        <td>${pkg.oQuantity}</td>
+                        <td>${pkg.oPricePerPkg}</td>
+                    </tr>
+                </c:forEach>
+                    <tr>Total Price:$ ${finalPrice}</tr>
+                    <tr>
+                    </tr>
+                    <tr>
+                        <td>Continue with the purchase?</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="receiptPage.htm"><button id="toCreditCard">Confirm Order</button></a>
+                        </td>
+                        <td>
+                            <a href="menu.htm"><button id="">Cancel/Delete Orders</button></a>
+                        </td>    
+                    </tr>
+            </tbody>
+        </table>
     </body>
 </html>
