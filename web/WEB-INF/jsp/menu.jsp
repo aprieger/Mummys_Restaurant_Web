@@ -31,19 +31,69 @@
             .menuTitle {
                 text-align: center;
                 font-family: Garmond;
+                font-size: 2em;
             }
             table,tr,th,td{
                 border: 1px solid black;
+                font-family: Garmond;
+                font-size: 1.1em;
                 padding: 5px;
             }
 
             table {
                 border-collapse: collapse;
+                font-family: Garmond;
                 width: 90%;
                 margin: auto;
             }
             .packageImage{
                 width: 10em;
+            }
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #006400;
+            }
+
+            li {
+                float: left;
+            }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+            li a:hover {
+                background-color: #ADFF2F;
+                color: #006400;
+
+            }
+            li a:active {
+                background-color: #ADFF2F;
+                color: #006400;
+            }
+            .banner-img{
+                /* The image used */
+                background-image: url('images/buffet.png');
+
+               /*  Set a specific height */
+                height: 100px;
+
+                /* Position and center the image to scale nicely on all screens */
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                position: relative;
+            }
+            .button {
+                font-family: Garmond;
+                font-size: 1.1em;
             }
             tbody tr:hover.selected td,
             tbody tr:hover td {
@@ -53,7 +103,17 @@
         </style>
     </head>
     <body>
-        <input id="cartBtn" type="button"  onclick="window.location = 'cart.htm'" value="View Cart" >
+        <div class="banner-img"></div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="menu.htm">Menu</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about">About</a></li> 
+            </ul>
+        </nav><br>
+        <input class="button" id="cartBtn" type="button"  onclick="window.location = 'cart.htm'" value="View Cart" >
+        <input class="button" id="checkoutBtn" type="button"  onclick="window.location = 'choosePaymentOption.htm'" value="Go To Checkout" >
         <table id="packageTable">
             <caption class="menuTitle">Menu</caption>
             <thead>
@@ -85,7 +145,6 @@
                 </c:forEach>
             </tbody>
         </table>
-        <input id="checkoutBtn" type="button"  onclick="window.location = 'choosePaymentOption.htm'" value="Go To Checkout" >
     </body>
 </html>
 

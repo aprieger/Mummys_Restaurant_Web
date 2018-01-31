@@ -1,10 +1,10 @@
 package Controller;
 
-import Model.PkgOrder;
 import Model.Package;
-import Service.PackageDAO;
-import Service.PkgOrderDAO;
+import Model.*;
+import Service.*;
 import Validator.PackageValidator;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,6 +28,7 @@ public class PackageController{
     
     private PackageDAO packageDAO;
     private PkgOrderDAO pkgOrderDAO;
+    private ServiceAreaDAO serviceAreaDAO;
     @Autowired
     private PackageValidator packageValidator;
     
@@ -42,14 +43,22 @@ public class PackageController{
     public void setPkgOrderDAO(PkgOrderDAO pkgOrderDAO) {
         this.pkgOrderDAO = pkgOrderDAO;
     }
+    public void setServiceAreaDAO(ServiceAreaDAO serviceAreaDAO) {
+        this.serviceAreaDAO = serviceAreaDAO;
+    }
 
     //View auto calls this method when the page loads (GET)
     @RequestMapping(value = "/package", method = RequestMethod.GET)
     public ModelAndView onPageLoad(Model model, HttpServletRequest request, HttpServletResponse response) {
-        customerId = Integer.parseInt(request.getSession().getAttribute("customerId").toString());
-	PkgOrder pkgOrder = new PkgOrder();
-	model.addAttribute("formPkgOrder", pkgOrder);
-        return new ModelAndView("package", "packageItemDetails", packageDAO.getSinglePackageData(Integer.parseInt(request.getParameter("packageId"))));
+        try {
+            customerId = Integer.parseInt(request.getSession().getAttribute("customerId").toString());
+            PkgOrder pkgOrder = new PkgOrder();
+            Package newPackage = packageDAO.getSinglePackageData(Integer.parseInt(request.getParameter("packageId")));
+            List<ServiceArea> svcArea = serviceAreaDAO.getAllServiceAreasByPackageID(Integer.parseInt(request.getParameter("packageId")));
+            model.addAttribute("formPkgOrder", pkgOrder);
+            model.addAttribute("serviceAreaList", svcArea);
+            return new ModelAndView("package", "packageItemDetails", newPackage);
+        } catch (Exception e) {System.out.println(e);return new ModelAndView("redirect:/index.htm");}
     }
     //Form submission calls this method to handle the form using the model attribute  and performs its function
     @RequestMapping(value = "/package", method = RequestMethod.POST)
