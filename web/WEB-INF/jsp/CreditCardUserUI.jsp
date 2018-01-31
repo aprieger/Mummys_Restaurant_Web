@@ -27,22 +27,25 @@
             <tr>
                 <td><p><a href="">2. Pick an existing card (ENTER THE CREDIT ID)</a></p></td>
             </tr>
-            <tr>
-                <td><p><a href="">3. Delete an existing card(ENTER THE CREDIT ID)</a></p></td>
-            </tr>
-            <tr>
-                <td>Credit ID</td>
-                <td>Customer ID</td>
-                <td>Card Number</td>
-                <td>Brand</td>
-            </tr>
-            <c:forEach items="${listOfCards}" var="card">
-                <tr>
-                    <td><c:out value="${card.getCREDIT_ID()}" /></td>
-                    <td><c:out value="${card.getCUSTOMER_ID()}" /></td>
-                    <td><c:out value="${card.getCARD_NUMBER()}" /></td>
-                    <td><c:out value="${card.getBRAND()}" /></td>
+            <form:form method="POST" commandName="CreditCard">
+                <tr> 
+                    <td><form:input path="CREDIT_ID"/></td>
+                    <td><form:errors path="CREDIT_ID" cssClass="error" /></td>
                 </tr>
-            </c:forEach>
+                <tr>
+                    <td colspan="2"><input type="submit"></td> 
+                </tr>
+            </form:form>
+        </table>
     </body>
 </html>
+
+<form:form method="POST" commandName="CreditCard">
+    <tr> 
+        <td><form:input path="CREDIT_ID"/></td>
+        <td><form:errors path="CREDIT_ID" cssClass="error" /></td>
+    </tr>
+    <tr>
+        <td colspan="2"><input type="submit"></td> 
+    </tr>
+</form:form>
