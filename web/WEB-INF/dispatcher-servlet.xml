@@ -23,6 +23,7 @@
                 <prop key="seeAllOrders.htm">seeAllOrdersController</prop>
                 <prop key="newOrders.htm">newOrdersController</prop>
                 <prop key="editOrder.htm">editOrderController</prop>
+                <prop key="choosePaymentOption.htm">choosePaymentOptionController</prop>
                 <prop key="login.htm">loginController</prop>
                 <prop key="signup.htm">signUpController</prop>
                 <prop key="editCustomers.htm">editCustomersController</prop>
@@ -55,8 +56,12 @@
     
     <bean name="newOrdersController"
           class="Controller.NewOrdersController"
-          p:formView="newOrders"
           p:ordersDAO-ref="ordersDAO"/>
+    
+    <bean name="choosePaymentOptionController"
+          class="Controller.ChoosePaymentOption" 
+          p:pkgOrderDAO-ref="pkgOrderDAO"/>
+          
     
     <bean name="editOrderController"
           class="Controller.EditOrderController"
@@ -90,9 +95,8 @@
        
     <!-- Bean for CustomerAccount Controllers -->
     <bean name="userDAO" class="Service.UserDAOImpl"/>
-    
-    <bean name="ordersDAO" 
-          class="Service.OrdersDAOImpl" />
+    <bean name="pkgOrderDAO" class="Service.PkgOrderDAOImpl" />
+    <bean name="ordersDAO" class="Service.OrdersDAOImpl" />
 
     <!-- Validators for CustomerAccount Login/Registration -->
     <bean id="userValidator" class="Validator.UserValidator" />
