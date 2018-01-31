@@ -53,14 +53,15 @@
             </tr> 
             <tr> 
                 <td>Phone:</td> 
-                <td><form:input path="phone" /></td> 
-                <td><form:errors path="phone" cssClass="error" /></td>
-            </tr> 
-            <tr> 
-                <td>Username(Email):</td> 
-                <td><form:input path="username" 
-                       pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"/>
-                </td> 
+                    <td><form:input path="phone" placeholder="xxx-xxx-xxxx"
+                            pattern="\d{3}-\d{3}-\d{4}"/></td> 
+                    <td><form:errors path="phone" cssClass="error" /></td>
+                </tr> 
+                <tr> 
+                    <td>Username(Email address):</td> 
+                    <td><form:input path="username" placeholder="customer@example.com"
+                            pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"/>
+                    </td> 
                 <td><form:errors path="username" cssClass="error" /></td>
             </tr> 
             <tr> 
