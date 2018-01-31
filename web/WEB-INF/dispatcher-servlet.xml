@@ -26,6 +26,17 @@
                 <prop key="login.htm">loginController</prop>
                 <prop key="signup.htm">signUpController</prop>
                 <prop key="editCustomers.htm">editCustomersController</prop>
+                <prop key="CreditCardAdminUI.htm">CreditCardAdminController</prop>
+                <prop key="CreditCardUserUI.htm">CreditCardUserController</prop>                
+                   <prop key="CreditCardAdminUI1.htm">CreditCardAdminController1</prop>                
+                   <prop key="CreditCardAdminUI11.htm">CreditCardAdminController11</prop>                
+                   <prop key="CreditCardAdminUI2.htm">CreditCardAdminController2</prop>                
+                   <prop key="CreditCardAdminUI22.htm">CreditCardAdminController22</prop>                
+                   <prop key="CreditCardAdminUI3.htm">CreditCardAdminController3</prop>                
+                   <prop key="CreditCardAdminUI33.htm">CreditCardAdminController33</prop>                
+                   <prop key="CreditCardAdminUI4.htm">CreditCardAdminController4</prop>                
+                   <prop key="CreditCardAdminUI5.htm">CreditCardAdminController5</prop>                                
+                   <prop key="CreditCardUserUI1.htm">CreditCardUserController1</prop>                
             </props>
         </property>
     </bean>
