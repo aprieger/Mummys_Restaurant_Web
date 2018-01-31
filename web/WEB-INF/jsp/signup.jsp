@@ -57,8 +57,10 @@
                 <td><form:errors path="phone" cssClass="error" /></td>
             </tr> 
             <tr> 
-                <td>Username:</td> 
-                <td><form:input path="username" /></td> 
+                <td>Username(Email):</td> 
+                <td><form:input path="username" 
+                       pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"/>
+                </td> 
                 <td><form:errors path="username" cssClass="error" /></td>
             </tr> 
             <tr> 
