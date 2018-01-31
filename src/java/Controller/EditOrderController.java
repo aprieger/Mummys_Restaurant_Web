@@ -42,7 +42,7 @@ public class EditOrderController {
         return new ModelAndView("editOrder", "orderDetail", ordersDAO.getOrdersByOrderID(orderID).get(0));
     }
     
-    //
+    
     @RequestMapping(value = "/editOrder", method = RequestMethod.POST)
     protected ModelAndView updateOrder(@ModelAttribute("orderInfo") Orders order, BindingResult result, BindException errors) throws Exception{
         System.out.println("Why won't this print?");

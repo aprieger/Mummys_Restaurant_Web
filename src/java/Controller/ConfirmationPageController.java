@@ -25,8 +25,8 @@ import org.springframework.web.servlet.ModelAndView;
  * @author syntel
  */
 @Controller
-@RequestMapping("/choosePaymentOption")
-public class ChoosePaymentOption {
+@RequestMapping("/confirmationPage")
+public class ConfirmationPageController {
     
     private PkgOrderDAO pkgOrderDAO;
     
@@ -38,6 +38,7 @@ public class ChoosePaymentOption {
     public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
         int customerID = Integer.parseInt(request.getSession().getAttribute("customerID").toString());
         //returns DB queried object into seeAllOrders.jsp, variable: "listOfOrders"
+        model.addAttribute("finalPrice",pkgOrderDAO.getFinalPrice(customerID));
         return new ModelAndView("choosePaymentOption","pkgOrderInfo",pkgOrderDAO.getOpenPkgOrdersByCustomerAll(customerID));
-    }    
+    }   
 }

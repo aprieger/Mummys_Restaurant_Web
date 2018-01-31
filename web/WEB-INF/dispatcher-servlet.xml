@@ -23,6 +23,8 @@
                 <prop key="seeAllOrders.htm">seeAllOrdersController</prop>
                 <prop key="newOrders.htm">newOrdersController</prop>
                 <prop key="editOrder.htm">editOrderController</prop>
+                <prop key="choosePaymentOption.htm">choosePaymentOptionController</prop>
+                <prop key="confirmationPage.htm">confirmationPageController</prop>
                 <prop key="login.htm">loginController</prop>
                 <prop key="signup.htm">signUpController</prop>
                 <prop key="editCustomers.htm">editCustomersController</prop>
@@ -55,8 +57,15 @@
     
     <bean name="newOrdersController"
           class="Controller.NewOrdersController"
-          p:formView="newOrders"
           p:ordersDAO-ref="ordersDAO"/>
+    
+    <bean name="choosePaymentOptionController"
+          class="Controller.ChoosePaymentOption" 
+          p:pkgOrderDAO-ref="pkgOrderDAO"/>
+          
+    <bean name="confirmationPageController"
+          class="Controller.ConfirmationPageController"
+          p:pkgOrderDAO-ref="pkgOrderDAO"/>
     
     <bean name="editOrderController"
           class="Controller.EditOrderController"
@@ -90,14 +99,20 @@
        
     <!-- Bean for CustomerAccount Controllers -->
     <bean name="userDAO" class="Service.UserDAOImpl"/>
-    
-    <bean name="ordersDAO" 
-          class="Service.OrdersDAOImpl" />
+    <bean name="pkgOrderDAO" class="Service.PkgOrderDAOImpl" />
+    <bean name="ordersDAO" class="Service.OrdersDAOImpl" />
 
     <!-- Validators for CustomerAccount Login/Registration -->
     <bean id="userValidator" class="Validator.UserValidator" />
     <bean id="newUserValidator" class="Validator.NewUserValidator" />
        
+       <bean name="CreditCardAdminController"
+             class="Controller.Credit.CreditCardAdminController"
+             p:formView="CreditCardAdminUI"
+             p:validator-ref="CreditValidator" />        
+    
+    <bean name="CreditCardAdminController1"          class="Controller.Credit.CreditCardAdminController1"          p:formView="CreditCardAdminUI1"              p:validator-ref="CreditCardAdmin1Validator" />        <bean name="CreditCardAdminController11"          class="Controller.Credit.CreditCardAdminController11"          p:formView="CreditCardAdminUI11"          />    <bean name="CreditCardAdminController2"          class="Controller.Credit.CreditCardAdminController2"          p:formView="CreditCardAdminUI2"          p:validator-ref="CreditCardAdmin2Validator"    />        <bean name="CreditCardAdminController22"          class="Controller.Credit.CreditCardAdminController22"          p:formView="CreditCardAdminUI22"          />        <bean name="CreditCardAdminController3"          class="Controller.Credit.CreditCardAdminController3"          p:formView="CreditCardAdminUI3"          p:validator-ref="CreditCardAdmin3Validator"    />        <bean name="CreditCardAdminController33"          class="Controller.Credit.CreditCardAdminController33"          p:formView="CreditCardAdminUI33"          />    <bean name="CreditCardAdminController4"          class="Controller.Credit.CreditCardAdminController4"          p:formView="CreditCardAdminUI4"          p:validator-ref="CreditCardAdmin4Validator"    />        <bean name="CreditCardAdminController5"          class="Controller.Credit.CreditCardAdminController5"          p:formView="CreditCardAdminUI5"          p:validator-ref="CreditCardAdmin5Validator"    />        <bean name="CreditCardUserController1"          class="Controller.Credit.CreditCardUserController1"          p:formView="CreditCardUserUI1"          p:validator-ref="CreditCardUser1Validator"    />            <bean name="CreditCardUserController"          class="Controller.Credit.CreditCardUserController"          p:formView="CreditCardUserUI" />        <bean name="CreditCardDAOImpl" class="DAO.Credit.CreditCardDAOImpl" />        <bean id="CreditValidator" class="Validator.Credit.CreditValidator" />    <bean id="CreditCardAdmin1Validator" class="Validator.Credit.CreditCardAdmin1Validator" />    <bean id="CreditCardAdmin2Validator" class="Validator.Credit.CreditCardAdmin2Validator" />    <bean id="CreditCardAdmin3Validator" class="Validator.Credit.CreditCardAdmin3Validator" />    <bean id="CreditCardAdmin4Validator" class="Validator.Credit.CreditCardAdmin4Validator" />    <bean id="CreditCardAdmin5Validator" class="Validator.Credit.CreditCardAdmin5Validator" />    <bean id="CreditCardUser1Validator" class="Validator.Credit.CreditCardUser1Validator" />    
+
     <bean name="CreditCardAdminController"
         class="Controller.Credit.CreditCardAdminController"
         p:formView="CreditCardAdminUI"
@@ -158,6 +173,4 @@
     <bean id="CreditCardAdmin5Validator" class="Validator.Credit.CreditCardAdmin5Validator" />
     <bean id="CreditCardUser1Validator" class="Validator.Credit.CreditCardUser1Validator" />
 
-
-    
 </beans>
