@@ -76,7 +76,7 @@
                         <td>${pack.description}</td>
                         <td>${pack.mealCategory}</td>
                         <td>
-                            <img width="120em" src=${pack.imageSource} alt=${pack.imageSource}></img>
+                            <img width="120em" src=images/${pack.imageSource} alt=${pack.imageSource}></img>
                         </td>
                         <td>${pack.price}</td>
                         <td>${pack.isSpecial}</td>
@@ -85,6 +85,7 @@
                 </c:forEach>
             </tbody>
         </table>
+        <input id="checkoutBtn" type="button"  onclick="window.location = 'choosePaymentOption.htm'" value="Go To Checkout" >
     </body>
 </html>
 

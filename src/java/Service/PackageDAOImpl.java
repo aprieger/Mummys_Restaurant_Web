@@ -8,9 +8,11 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
+//Package DAO implementation class that impelments the PackageDAO class
+//creates functions to be used by various controllers to communicated between the database
 public class PackageDAOImpl implements PackageDAO{
+    //creates and initializes the jdbcTemplate object, that allows communication to the data base
     private static JdbcTemplate jdbcTemplate;
-    
     public void setDataSource(DataSource dataSource){
         jdbcTemplate=new JdbcTemplate(dataSource);
     }
@@ -28,7 +30,7 @@ public class PackageDAOImpl implements PackageDAO{
         return jdbcTemplate.queryForObject("SELECT MAX(Package_Id)FROM Packages",Integer.class)+1;
     }
     @Override
-    public void editPackage(int editPackageId, String name, String description, int mealCategory, String imageSource, double price, int isSpecial, int mealType) {
+    public void editPackage(int editPackageId, String name, String description, String mealCategory, String imageSource, double price, String isSpecial, String mealType) {
         this.editName(editPackageId, name);
         this.editDescription(editPackageId, description);
         this.editMealCategory(editPackageId, mealCategory);
@@ -40,9 +42,6 @@ public class PackageDAOImpl implements PackageDAO{
     
     @Override
     public void editName(int editPackageId, String newName) {
-        String updateStr = ("UPDATE Packages SET Name=? WHERE Package_Id=?");
-        int argsTypes[]={Types.VARCHAR,Types.INTEGER};
-        System.out.println("UPDATE Packages SET Name='"+newName+"' WHERE Package_Id="+editPackageId);
         jdbcTemplate.execute("UPDATE Packages SET Name='"+newName+"' WHERE Package_Id="+editPackageId);
     }
     
@@ -54,9 +53,9 @@ public class PackageDAOImpl implements PackageDAO{
     }
     
     @Override
-    public void editMealCategory(int editPackageId, int newMealCategory) {
+    public void editMealCategory(int editPackageId, String newMealCategory) {
         String updateStr = ("UPDATE Packages SET Meal_Category=? WHERE Package_Id=?");
-        int argsTypes[]={Types.INTEGER,Types.INTEGER};
+        int argsTypes[]={Types.VARCHAR,Types.INTEGER};
         jdbcTemplate.update(updateStr, new Object[]{newMealCategory, editPackageId},argsTypes);
     }
     
@@ -75,16 +74,16 @@ public class PackageDAOImpl implements PackageDAO{
     }
     
     @Override
-    public void editIsSpecial(int editPackageId, int newIsSpecial) {
+    public void editIsSpecial(int editPackageId, String newIsSpecial) {
         String updateStr = ("UPDATE Packages SET Is_Special=? WHERE Package_Id=?");
-        int argsTypes[]={Types.INTEGER,Types.INTEGER};
+        int argsTypes[]={Types.VARCHAR,Types.INTEGER};
         jdbcTemplate.update(updateStr, new Object[]{newIsSpecial, editPackageId},argsTypes);
     }
     
     @Override
-    public void editMealType(int editPackageId, int newMealType) {
+    public void editMealType(int editPackageId, String newMealType) {
         String updateStr = ("UPDATE Packages SET Meal_Type=? WHERE Package_Id=?");
-        int argsTypes[]={Types.INTEGER,Types.INTEGER};
+        int argsTypes[]={Types.VARCHAR,Types.INTEGER};
         jdbcTemplate.update(updateStr, new Object[]{newMealType, editPackageId},argsTypes);
     }
     

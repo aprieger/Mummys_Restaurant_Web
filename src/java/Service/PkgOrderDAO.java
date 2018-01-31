@@ -1,11 +1,11 @@
 package Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import Model.Package;
 import Model.PkgOrder;
 import Model.CartPkg;
 
+//Pkg Order DAO Abstract class that PkgOrderDAOImpl implements
+//Declares functions to be used by various controllers to communicated between the database
 public interface PkgOrderDAO {  
     public void addOpenPkgOrder(PkgOrder pkgOrder);
     public void editOrderId(int pkgOrderId, int newOrderId);

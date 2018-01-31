@@ -3,6 +3,8 @@ package Service;
 import java.util.List;
 import Model.ServiceArea;
 
+//Service Area DAO Abstract class that ServiceAreaDAOImpl implements
+//Declares functions to be used by various controllers to communicated between the database
 public interface ServiceAreaDAO {
     public void addServiceArea(ServiceArea svc);
     public int getNextAreaId();
