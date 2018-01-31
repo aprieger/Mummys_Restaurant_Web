@@ -4,7 +4,6 @@ import Model.Package;
 import org.springframework.jdbc.core.RowMapper;
 import java.sql.*;
 import java.util.ArrayList;
-//import org.json.JSONObject;
 
 public class PackageRowMapper implements RowMapper {
     @Override
