@@ -23,6 +23,13 @@
                 <prop key="seeAllOrders.htm">seeAllOrdersController</prop>
                 <prop key="newOrders.htm">newOrdersController</prop>
                 <prop key="editOrder.htm">editOrderController</prop>
+                <prop key="adminpackages.htm">adminPackagesController</prop>
+                <prop key="adminpackageedit.htm">adminPackageEditController</prop>
+                <prop key="adminpackageadd.htm">adminPackageAddController</prop>
+                <prop key="adminpkgorders.htm">adminPkgOrdersController</prop>
+                <prop key="cart.htm">cartController</prop>
+                <prop key="menu.htm">menuController</prop>
+                <prop key="package.htm">packageController</prop>
             </props>
         </property>
     </bean>
@@ -54,5 +61,42 @@
     
     <bean name="ordersDAO" 
           class="Service.OrdersDAOImpl" />
+       
+    <bean name="adminPackagesController"
+        class="Controller.AdminPackagesController"
+        p:packageDAO-ref="packageDAO"/>
+    
+    <bean name="adminPackageEditController"
+        class="Controller.AdminPackageEditController"
+        p:packageDAO-ref="packageDAO"/>
+    
+    <bean name="adminPackageAddController"
+        class="Controller.AdminPackageAddController"
+        p:packageDAO-ref="packageDAO"/>
+    
+    <bean name="adminPkgOrdersController"
+        class="Controller.AdminPkgOrdersController"
+        p:pkgOrderDAO-ref="pkgOrderDAO"/>
+    
+    <bean name="cartController"
+        class="Controller.CartController"
+        p:packageDAO-ref="packageDAO"
+        p:pkgOrderDAO-ref="pkgOrderDAO"/>
+    
+    <bean name="menuController"
+        class="Controller.MenuController"
+        p:packageDAO-ref="packageDAO"/>
+    
+    <bean name="packageController"
+        class="Controller.PackageController"
+        p:packageDAO-ref="packageDAO"
+        p:pkgOrderDAO-ref="pkgOrderDAO"/>
+
+    <bean name="packageDAO" class="Service.PackageDAOImpl"></bean>
+    <bean name="pkgOrderDAO" class="Service.PkgOrderDAOImpl"></bean>
+    
+    <bean id="packageValidator"
+        class="Validator.PackageValidator"
+        p:packageDAO-ref="packageDAO"/>
 
 </beans>
