@@ -84,17 +84,6 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public void findValidUser(String usrId, String pwd) {
-        Object o[] = {usrId, pwd};
-        int argsTypes[] = {Types.VARCHAR, Types.VARCHAR};
-        RowMapper mapper = new UsrRowMapper();
-        List l = jdbcTemplate.query("select * from CustomerAccounts where username=? and password=?",
-                o, argsTypes, mapper);
-        Iterator it = l.iterator();
-        User usr = (User) it.next();
-    }
-
-    @Override
     public void banOrEnableCustomer(int id) {
         if (findId(id) != 0) {
             Integer enabled = jdbcTemplate.queryForObject("select enabled from CustomerAccounts where customerid=" + id, Integer.class);
