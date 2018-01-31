@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%> 
 <%
-    session.getAttribute("Sname"); 
+    session.getAttribute("Customer_Id"); 
 %>
 <!DOCTYPE html>
 <html>
@@ -18,28 +18,34 @@
     <body>
         <a href="index.htm">Back to index</a>
         <h1>Credit Card User UI</h1>
-        <h1>${Sname}</h1>
-        
-        <p>${card}</p>
-        <p>${card.CREDIT_ID}</p>
-        <p>${card.CUSTOMER_ID}</p>
-        <p>${card.CARD_NUMBER}</p>
-        <p>${card.BRAND}</p>
-        <p>${card.SECURITY_NUMBER}</p>
-        <p>${card.NAME_ON_CARD}</p>
-        <p>${card.CREDIT_ID}</p>
-        
-        
+        <h1>Hi,${Customer_name}</h1>
+   
         <table>
             <tr>
                 <td><p><a href="CreditCardUserUI1.htm">1. Add a new card </a></p></td>
             </tr>
             <tr>
-                <td><p><a href="">2. Pick an existing card</a></p></td>
+                <td><p><a href="">2. Pick an existing card (ENTER THE CREDIT ID)</a></p></td>
             </tr>
-            <tr>
-                <td><p><a href="">3. Delete an existing card</a></p></td>
-            </tr>
+            <form:form method="POST" commandName="CreditCard">
+                <tr> 
+                    <td><form:input path="CREDIT_ID"/></td>
+                    <td><form:errors path="CREDIT_ID" cssClass="error" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit"></td> 
+                </tr>
+            </form:form>
         </table>
     </body>
 </html>
+
+<form:form method="POST" commandName="CreditCard">
+    <tr> 
+        <td><form:input path="CREDIT_ID"/></td>
+        <td><form:errors path="CREDIT_ID" cssClass="error" /></td>
+    </tr>
+    <tr>
+        <td colspan="2"><input type="submit"></td> 
+    </tr>
+</form:form>
