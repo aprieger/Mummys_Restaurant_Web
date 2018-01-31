@@ -1,6 +1,5 @@
 package Service;
 
-import Model.PkgOrder;
 import Model.CartPkg;
 import org.springframework.jdbc.core.RowMapper;
 import java.sql.*;
@@ -20,11 +19,11 @@ public class CartPkgRowMapper implements RowMapper {
 	c.setpPackageId(rs.getInt(8));
 	c.setpName(rs.getString(9));
         c.setpDescription(rs.getString(10));
-        c.setpMealCategory(rs.getInt(11));
+        c.setpMealCategory(rs.getString(11));
         c.setpImageSource(rs.getString(12));
         c.setpPrice(rs.getDouble(13));
-        c.setpIsSpecial(rs.getInt(14));
-        c.setpMealType(rs.getInt(15));
+        c.setpIsSpecial(rs.getString(14));
+        c.setpMealType(rs.getString(15));
 	return c;
     }     
 }

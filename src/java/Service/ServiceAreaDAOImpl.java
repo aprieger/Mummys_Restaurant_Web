@@ -2,15 +2,16 @@ package Service;
 
 import java.util.Iterator;
 import java.util.List;
-import Model.ServiceArea;
 import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import Model.ServiceArea;
 
+//ServiceAreaDAO implementation class that impelments the ServiceAreaDAO class
+//creates functions to be used by various controllers to communicated between the database
 public class ServiceAreaDAOImpl implements ServiceAreaDAO{
+    //creates and initializes the jdbcTemplate object, that allows communication to the data base
     private static JdbcTemplate jdbcTemplate;
-    
     public void setDataSource(DataSource dataSource){
         jdbcTemplate=new JdbcTemplate(dataSource);
     }

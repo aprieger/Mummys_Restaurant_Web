@@ -12,7 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
-//This class is a controller for the page adminpackges.jsp and utilizes the PackageDAO
+//Controller class that maps the get and post methods for the adminpackages.jsp page
 @Controller
 @RequestMapping("/adminpackages")
 public class AdminPackagesController{
@@ -22,9 +22,9 @@ public class AdminPackagesController{
         this.packageDAO = packageDAO;
     }
    
-    //View auto calls this method when the page loads (GET)
+    //Form submission calls this method to handle the form using the model attribute  and performs its function
     @RequestMapping(value="/adminpackages", method=RequestMethod.GET)
-    public ModelAndView showAdminPackageEdit(Model model, HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView onPageLoad(Model model, HttpServletRequest request, HttpServletResponse response) {
 	Package pkg = new Package();
        	model.addAttribute("pkgDeleteForm", pkg);
         return new ModelAndView("adminpackages", "adminPackageList", packageDAO.getAllPackageData());
@@ -33,7 +33,13 @@ public class AdminPackagesController{
     //View auto calls this method when a form submits with the pkgForm attribute (POST)
     @RequestMapping(value = "/adminpackages", method = RequestMethod.POST)
     public String deleteAdminPackage(@ModelAttribute("pkgDeleteForm") Package pkg, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            System.out.println("----There was an error");
+            return "redirect:/adminpackages.htm";
+        }
+        else {
         packageDAO.deletePackage(pkg.getPackageId());
         return "redirect:/adminpackages.htm";
+        }
     }
 }
