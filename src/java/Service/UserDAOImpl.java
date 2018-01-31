@@ -102,10 +102,10 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public void deleteCustomer(int id) {
         if (findId(id) != 0) {
-            String password = jdbcTemplate.queryForObject("select password from CustomerAccounts where customerid=" + id, String.class);
+            String username = jdbcTemplate.queryForObject("select username from CustomerAccounts where customerid=" + id, String.class);
             jdbcTemplate.update("delete from Customers where customerid=" + id);
             jdbcTemplate.update("delete from CustomerAccounts where customerid=" + id);
-            jdbcTemplate.update("delete from Login where password='" + password + "'");
+            jdbcTemplate.update("delete from Login where login_id='" + username + "'");
         }
     }
 
