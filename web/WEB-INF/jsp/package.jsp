@@ -46,6 +46,12 @@
                 width: 90%;
                 margin: auto;
             }
+            #formBox{
+                display: flex;
+                justify-content: center;
+                width: 90%;
+                margin: auto;
+            }
             #info {
                 border-style: solid;
                 border-width: 2px;
@@ -76,6 +82,17 @@
                 padding: .2em;
                 padding-left:.4em;
             }
+            #areas {
+                font-size: 2em;
+                font-family: Garamond;
+                padding-top: .2em;
+                padding-left:.4em;
+            }
+            #area {
+                font-size: 2em;
+                font-family: Garamond;
+                padding-left:1.2em;
+            }
             #image {
                 border-style: solid;
                 border-width: 2px;
@@ -92,11 +109,71 @@
                 margin-left: 6em;
                 padding:.5em;
             }
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #006400;
+            }
+
+            li {
+                float: left;
+            }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+            li a:hover {
+                background-color: #ADFF2F;
+                color: #006400;
+
+            }
+            li a:active {
+                background-color: #ADFF2F;
+                color: #006400;
+            }
+            .banner-img{
+                /* The image used */
+                background-image: url('images/buffet.png');
+
+               /*  Set a specific height */
+                height: 100px;
+
+                /* Position and center the image to scale nicely on all screens */
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                position: relative;
+            }
         </style>
     </head>
     <body>
-        <p id="packID">ID: ${packageItemDetails.packageId}</p><br></br>
+        <div class="banner-img"></div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="menu.htm">Menu</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about">About</a></li> 
+            </ul>
+        </nav><br>
+        <p id="packID">ID: ${packageItemDetails.packageId}</p>
         <input id="menuBtn" type="button"  onclick="window.location = 'menu.htm'" value="Back To Menu" >
+        <div id="formBox">
+            <form:form method="POST" action="${userActionUrl}" modelAttribute="formPkgOrder">
+                <form:input path="packageIdKey" type="hidden" name="packageIdKey" value="${packageItemDetails.packageId}" />
+                <form:label path="quantity">Quantity:</form:label>
+                <form:input path="quantity" type="text" name="quantity" value="1" />
+                <form:errors path="quantity"/>
+                <input type="submit" value="Add To Cart">
+            </form:form>
+        </div>
         <div id="nameAndPrice">
             <div id="name">${packageItemDetails.name}</div>
             <div id="price">${packageItemDetails.price}</div>
@@ -107,18 +184,15 @@
                 <p id="category">Category : ${packageItemDetails.mealCategory}</p>
                 <p id="special">Special: ${packageItemDetails.isSpecial}</p>
                 <p id="type">Type: ${packageItemDetails.mealType}</p>
+                <p id="areas">Service Areas:</p>
+                <c:forEach items="${serviceAreaList}" var="svc">
+                    <p id="area">${svc.name}</p>
+                </c:forEach>
             </div>
             <div id="image">
                 <img id="packImg" src="images/${packageItemDetails.imageSource}" alt="${packageItemDetails.imageSource}"/>
             </div>
         </div>
-        <form:form method="POST" action="${userActionUrl}" modelAttribute="formPkgOrder">
-            <form:input path="packageIdKey" type="hidden" name="packageIdKey" value="${packageItemDetails.packageId}" /><br>
-            <form:label path="quantity">Quantity:</form:label>
-            <form:input path="quantity" type="text" name="quantity" value="1" /><br>
-            <form:errors path="quantity"/>
-            <input type="submit" value="Add To Cart">
-        </form:form>
     </body>
 </html>
 

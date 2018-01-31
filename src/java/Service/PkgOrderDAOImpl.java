@@ -105,7 +105,9 @@ public class PkgOrderDAOImpl implements PkgOrderDAO{
     }
     @Override
     public double getFinalPrice(int customer_id){
-        return jdbcTemplate.queryForObject("SELECT SUM(Price_Per_Pkg*Quantity) FROM PkgOrders WHERE Is_Open=1 AND Customer_Id="+customer_id,Double.class);
+        try {
+            return jdbcTemplate.queryForObject("SELECT SUM(Price_Per_Pkg*Quantity) FROM PkgOrders WHERE Is_Open=1 AND Customer_Id="+customer_id, Double.class);
+        } catch (Exception e) {return 0.0;}
     }
     
     @Override

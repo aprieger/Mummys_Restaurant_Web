@@ -36,7 +36,6 @@ public class CartController{
         customerId = Integer.parseInt(request.getSession().getAttribute("customerId").toString());
         PkgOrder pkg = new PkgOrder();
        	model.addAttribute("pkgForm", pkg);
-        System.out.println(pkgOrderDAO.getFinalPrice(customerId));
         return new ModelAndView("cart", "cartPkgList", pkgOrderDAO.getOpenPkgOrdersByCustomerAll(customerId));
     }
     
