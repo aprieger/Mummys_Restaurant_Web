@@ -24,8 +24,6 @@ public interface UserDAO {
     public List getAllCustomers();
 
     public User getCustomerByName(String first, String last);
-
-    public void findValidUser(String usrId, String pwd);
     
     public void banOrEnableCustomer(int id);
     
