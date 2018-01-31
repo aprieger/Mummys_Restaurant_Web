@@ -9,6 +9,11 @@
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
+      <!-- Bean for customer accounts -->
+     <bean id="UserDAO" class="Service.UserDAOImpl">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+       
     <bean id="OrdersDAO" class="Service.OrdersDAOImpl">
         <property name="dataSource" ref="dataSource" />
     </bean>
@@ -24,4 +29,7 @@
         <property name="username" value="hr" />
         <property name="password" value="hr" />
     </bean>
+       
+    <!-- Bean for login/registration errors -->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource" p:basename="messages" />
 </beans>
