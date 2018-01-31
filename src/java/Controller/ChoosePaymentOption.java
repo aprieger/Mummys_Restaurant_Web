@@ -28,12 +28,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/choosePaymentOption")
 public class ChoosePaymentOption {
     
-    private OrdersDAO ordersDAO;
     private PkgOrderDAO pkgOrderDAO;
-    
-    public void setOrdersDAO(OrdersDAO ordersDAO) {
-        this.ordersDAO = ordersDAO;
-    }
     
     public void setPkgOrderDAO (PkgOrderDAO pkgOrderDAO) {
         this.pkgOrderDAO = pkgOrderDAO;
@@ -41,15 +36,8 @@ public class ChoosePaymentOption {
     
     @RequestMapping(value = "/choosePaymentOption", method = RequestMethod.GET)
     public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
-        int orderID = Integer.parseInt(request.getParameter("orderID"));
+        int customerID = Integer.parseInt(request.getSession().getAttribute("customerID").toString());
         //returns DB queried object into seeAllOrders.jsp, variable: "listOfOrders"
-        return new ModelAndView("choosePaymentOption","pkgOrderInfo",pkgOrderDAO.getOpenPkgOrdersByCustomer(orderID));
-    }
-    
-    /*@RequestMapping(value = "/seeAllOrders", method = RequestMethod.POST)
-    public String deleteOrderRow(@ModelAttribute("orderInfo") Orders order, BindingResult result, Model model){
-        ordersDAO.deleteOrder(order.getOrderID());
-        return "redirect:/seeAllOrders.htm";
-    }*/
-    
+        return new ModelAndView("choosePaymentOption","pkgOrderInfo",pkgOrderDAO.getOpenPkgOrdersByCustomerAll(customerID));
+    }    
 }
