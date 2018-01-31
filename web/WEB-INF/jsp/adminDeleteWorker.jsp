@@ -25,8 +25,12 @@
           <table> 
             <tr> 
                 <td>Employee ID :</td> 
-                <td><form:input path="firstName" /></td> 
-                <td><form:errors path="firstName" cssClass="error" /></td>
+                <td><form:input path="employeeId" /></td> 
+                <td><form:errors path="employeeId" cssClass="error" /></td>
+            </tr> 
+            <tr> 
+                <td colspan="4">
+                <input type="submit"></td> 
             </tr> 
           </table>
         </form:form>   

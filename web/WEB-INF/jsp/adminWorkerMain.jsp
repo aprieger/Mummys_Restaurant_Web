@@ -22,13 +22,13 @@
         <h1>Administration Worker Main Page</h1>
         <table> 
             <tr> 
-                <td><a href="AdminEditSaveWorker.htm">Add an employee</a></td> 
+                <td><a href="AdminAddWorker.htm">Add an employee</a></td> 
             </tr>
             <tr> 
                 <td><a href="AdminDeleteWorker.htm">Delete an employee</a></td> 
             </tr>
             <tr> 
-                <td><a href="AdminEditSaveWorker.htm">Update an employee</a></td>
+                <td><a href="AdminEditWorker.htm">Update an employee</a></td>
             </tr>
             <tr> 
                 <td><a href="AdminViewWorker.htm">View an employee</a></td>
