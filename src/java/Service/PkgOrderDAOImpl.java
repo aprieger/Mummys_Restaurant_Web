@@ -9,9 +9,11 @@ import Model.CartPkg;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
+//PkgOrderDAOImplclass that impelments the PkgOrderDAO class
+//creates functions to be used by various controllers to communicated between the database
 public class PkgOrderDAOImpl implements PkgOrderDAO{
+    //creates and initializes the jdbcTemplate object, that allows communication to the data base
     private static JdbcTemplate jdbcTemplate;
-    
     public void setDataSource(DataSource dataSource){
         jdbcTemplate=new JdbcTemplate(dataSource);
     }
@@ -23,7 +25,7 @@ public class PkgOrderDAOImpl implements PkgOrderDAO{
                 + " VALUES (?,?,?,?,?,?,?)");
         
         jdbcTemplate.update(updateStr, new Object[]{
-                pkgOrder.getPkgOrderId(), pkgOrder.getOrderId(), pkgOrder.getPackageIdKey(), pkgOrder.getCustomerId(), 
+                this.getNextPkgOrderId(), pkgOrder.getOrderId(), pkgOrder.getPackageIdKey(), pkgOrder.getCustomerId(), 
                 pkgOrder.getPricePerPkg(), pkgOrder.getQuantity(), pkgOrder.getIsOpen()});
        
         } catch (Exception e){System.out.println(e);}
@@ -103,8 +105,7 @@ public class PkgOrderDAOImpl implements PkgOrderDAO{
     }
     @Override
     public double getFinalPrice(int customer_id){
-        Object[] o={customer_id};
-        return jdbcTemplate.queryForObject("SELECT SUM(Price_Per_Pkg*Quantity) FROM PkgOrders WHERE Is_Open=0 AND Customer_Id=?",o,Double.class);
+        return jdbcTemplate.queryForObject("SELECT SUM(Price_Per_Pkg*Quantity) FROM PkgOrders WHERE Is_Open=1 AND Customer_Id="+customer_id,Double.class);
     }
     
     @Override

@@ -12,16 +12,16 @@ public class CartPkg {
     private int pPackageId;
     private String pName;
     private String pDescription; 
-    private int pMealCategory;
+    private String pMealCategory;
     private String pImageSource;
     private double pPrice;
-    private int pIsSpecial;
-    private int pMealType;
+    private String pIsSpecial;
+    private String pMealType;
 
     public CartPkg() {
     }
 
-    public CartPkg(int oPkgOrderId, int oOrderId, int oPackageId, int oCustomerId, double oPricePerPkg, int oQuantity, int oIsOpen, int pPackageId, String pName, String pDescription, int pMealCategory, String pImageSource, double price, int pIsSpecial, int pMealType) {
+    public CartPkg(int oPkgOrderId, int oOrderId, int oPackageId, int oCustomerId, double oPricePerPkg, int oQuantity, int oIsOpen, int pPackageId, String pName, String pDescription, String pMealCategory, String pImageSource, double price, String pIsSpecial, String pMealType) {
         this.oPkgOrderId = oPkgOrderId;
         this.oOrderId = oOrderId;
         this.oPackageId = oPackageId;
@@ -119,11 +119,11 @@ public class CartPkg {
         this.pDescription = pDescription;
     }
 
-    public int getpMealCategory() {
+    public String getpMealCategory() {
         return pMealCategory;
     }
 
-    public void setpMealCategory(int pMealCategory) {
+    public void setpMealCategory(String pMealCategory) {
         this.pMealCategory = pMealCategory;
     }
 
@@ -143,19 +143,19 @@ public class CartPkg {
         this.pPrice = pPrice;
     }
 
-    public int getpIsSpecial() {
+    public String getpIsSpecial() {
         return pIsSpecial;
     }
 
-    public void setpIsSpecial(int pIsSpecial) {
+    public void setpIsSpecial(String pIsSpecial) {
         this.pIsSpecial = pIsSpecial;
     }
 
-    public int getpMealType() {
+    public String getpMealType() {
         return pMealType;
     }
 
-    public void setpMealType(int pMealType) {
+    public void setpMealType(String pMealType) {
         this.pMealType = pMealType;
     }
     

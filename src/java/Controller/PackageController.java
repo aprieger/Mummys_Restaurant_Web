@@ -20,10 +20,11 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.servlet.ModelAndView;
 
+//Controller class that maps the get and post methods for the packages.jsp page
 @Controller
 @RequestMapping("/packages")
 public class PackageController{
-    int customerId=1;
+    int customerId;
     
     private PackageDAO packageDAO;
     private PkgOrderDAO pkgOrderDAO;
@@ -41,22 +42,21 @@ public class PackageController{
     public void setPkgOrderDAO(PkgOrderDAO pkgOrderDAO) {
         this.pkgOrderDAO = pkgOrderDAO;
     }
-    //public void setPackageValidator(PackageValidator packageValidator) {
-        //this.packageValidator = packageValidator;
-    //}
-    
+
+    //View auto calls this method when the page loads (GET)
     @RequestMapping(value = "/package", method = RequestMethod.GET)
-    public ModelAndView handleRequest(Model model, HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView onPageLoad(Model model, HttpServletRequest request, HttpServletResponse response) {
+        customerId = Integer.parseInt(request.getSession().getAttribute("customerId").toString());
 	PkgOrder pkgOrder = new PkgOrder();
 	model.addAttribute("formPkgOrder", pkgOrder);
         return new ModelAndView("package", "packageItemDetails", packageDAO.getSinglePackageData(Integer.parseInt(request.getParameter("packageId"))));
     }
-    
+    //Form submission calls this method to handle the form using the model attribute  and performs its function
     @RequestMapping(value = "/package", method = RequestMethod.POST)
-    public ModelAndView addPackage(@ModelAttribute("formPkgOrder") @Validated PkgOrder formPkgOrder, BindingResult result, Model model) {
+    public String addToCart(@ModelAttribute("formPkgOrder") @Validated PkgOrder formPkgOrder, BindingResult result, Model model) {
         if (result.hasErrors()) {
             System.out.println("----There was an error");
-            return new ModelAndView("redirect:/cart.htm", "pkgOrderList", pkgOrderDAO.getOpenPkgOrdersByCustomer(customerId));
+            return "redirect:/cart.htm";
         }
         else {
             PkgOrder newPkgOrder = new PkgOrder();
@@ -71,7 +71,7 @@ public class PackageController{
             newPkgOrder.setIsOpen(1);
             pkgOrderDAO.addOpenPkgOrder(newPkgOrder);
 
-            return new ModelAndView("redirect:/cart.htm", "pkgOrderList", pkgOrderDAO.getOpenPkgOrdersByCustomer(customerId));
+            return "redirect:/cart.htm";
         }
     }
 }

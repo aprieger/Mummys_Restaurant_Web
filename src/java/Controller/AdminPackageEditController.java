@@ -12,7 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
-//This class is a controller for the page adminpackges.jsp and utilizes the PackageDAO
+//Controller class that maps the get and post methods for the adminpackageedit.jsp page
 @Controller
 @RequestMapping("/adminpackageedit")
 public class AdminPackageEditController{
@@ -24,16 +24,22 @@ public class AdminPackageEditController{
     
     //View auto calls this method when the page loads (GET)
     @RequestMapping(value = "/adminpackageedit", method = RequestMethod.GET)
-    public ModelAndView showAdminPackageEdit(Model model, HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView onPageLoad(Model model, HttpServletRequest request, HttpServletResponse response) {
 	Package pkg = new Package();
        	model.addAttribute("pkgEditForm", pkg);
         return new ModelAndView("adminpackageedit", "adminEditPackageDetails", packageDAO.getSinglePackageData(Integer.parseInt(request.getParameter("packageId"))));
     }
     
-    //View auto calls this method when a form submits with the pkgForm attribute (POST)
+    //Form submission calls this method to handle the form using the model attribute  and performs its function
     @RequestMapping(value = "/adminpackageedit", method = RequestMethod.POST)
     public String editPackage(@ModelAttribute("pkgEditForm") Package pkg, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            System.out.println("----There was an error");
+            return "redirect:/adminpackages.htm";
+        }
+        else {
         packageDAO.editPackage(pkg.getPackageId(), pkg.getName(), pkg.getDescription(), pkg.getMealCategory(), pkg.getImageSource(), pkg.getPrice(), pkg.getIsSpecial(), pkg.getMealType());
         return "redirect:/adminpackages.htm";
+        }
     }
 }

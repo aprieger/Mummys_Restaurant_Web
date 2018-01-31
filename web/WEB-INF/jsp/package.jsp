@@ -109,7 +109,7 @@
                 <p id="type">Type: ${packageItemDetails.mealType}</p>
             </div>
             <div id="image">
-                <img id="packImg" src="${packageItemDetails.imageSource}" alt="${packageItemDetails.imageSource}"/>
+                <img id="packImg" src="images/${packageItemDetails.imageSource}" alt="${packageItemDetails.imageSource}"/>
             </div>
         </div>
         <form:form method="POST" action="${userActionUrl}" modelAttribute="formPkgOrder">

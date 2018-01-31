@@ -4,16 +4,16 @@ public class Package {
     private int packageId;
     private String name;
     private String description; 
-    private int mealCategory;
+    private String mealCategory;
     private String imageSource;
     private double price;
-    private int isSpecial;
-    private int mealType;
+    private String isSpecial;
+    private String mealType;
 
     public Package() {
     }
 
-    public Package(int packageId, String name, String description, int mealCategory, String imageSource, double price, int isSpecial, int mealType) {
+    public Package(int packageId, String name, String description, String mealCategory, String imageSource, double price, String isSpecial, String mealType) {
         this.packageId = packageId;
         this.name = name;
         this.description = description;
@@ -48,11 +48,11 @@ public class Package {
         this.description = description;
     }
 
-    public int getMealCategory() {
+    public String getMealCategory() {
         return mealCategory;
     }
 
-    public void setMealCategory(int mealCategory) {
+    public void setMealCategory(String mealCategory) {
         this.mealCategory = mealCategory;
     }
 
@@ -72,19 +72,19 @@ public class Package {
         this.price = price;
     }
 
-    public int getIsSpecial() {
+    public String getIsSpecial() {
         return isSpecial;
     }
 
-    public void setIsSpecial(int isSpecial) {
+    public void setIsSpecial(String isSpecial) {
         this.isSpecial = isSpecial;
     }
 
-    public int getMealType() {
+    public String getMealType() {
         return mealType;
     }
 
-    public void setMealType(int mealType) {
+    public void setMealType(String mealType) {
         this.mealType = mealType;
     }
 }
