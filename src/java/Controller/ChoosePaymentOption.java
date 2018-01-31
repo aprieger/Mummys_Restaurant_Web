@@ -7,6 +7,7 @@ package Controller;
 
 import Service.OrdersDAO;
 import Model.Orders;
+import Service.PkgOrderDAO;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -40,17 +41,15 @@ public class ChoosePaymentOption {
     
     @RequestMapping(value = "/choosePaymentOption", method = RequestMethod.GET)
     public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
-        Orders order = new Orders();
-        //establishes an empty vessel that updated information goes into in seeAllOrders.jsp
-        model.addAttribute("orderInfo", order);
+        int orderID = Integer.parseInt(request.getParameter("orderID"));
         //returns DB queried object into seeAllOrders.jsp, variable: "listOfOrders"
-        return new ModelAndView("seeAllOrders","listOfOrders",ordersDAO.getAllOrders());
+        return new ModelAndView("choosePaymentOption","pkgOrderInfo",pkgOrderDAO.getOpenPkgOrdersByCustomer(orderID));
     }
     
-    @RequestMapping(value = "/seeAllOrders", method = RequestMethod.POST)
+    /*@RequestMapping(value = "/seeAllOrders", method = RequestMethod.POST)
     public String deleteOrderRow(@ModelAttribute("orderInfo") Orders order, BindingResult result, Model model){
         ordersDAO.deleteOrder(order.getOrderID());
         return "redirect:/seeAllOrders.htm";
-    }
+    }*/
     
 }
