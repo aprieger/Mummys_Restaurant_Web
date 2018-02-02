@@ -6,7 +6,6 @@
 package Service;
 
 import Model.newUser;
-import Model.User;
 import java.util.List;
 
 /**
@@ -23,7 +22,7 @@ public interface UserDAO {
 
     public List getAllCustomers();
 
-    public User getCustomerByName(String first, String last);
+    public newUser getCustomerByName(String first, String last);
     
     public void banOrEnableCustomer(int id);
     
