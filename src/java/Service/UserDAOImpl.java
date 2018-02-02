@@ -71,13 +71,13 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public User getCustomerByName(String first, String last) {
+    public newUser getCustomerByName(String first, String last) {
         Object o[] = {first, last};
         int argsTypes[] = {Types.VARCHAR, Types.VARCHAR};
         RowMapper mapper = new NewUsrRowMapper();
         List l = jdbcTemplate.query("select * from Customers where Customers.firstname=? and Customers.lastname=?", o, argsTypes, mapper);
         Iterator it = l.iterator();
-        User usr = (User) it.next();
+        newUser usr = (newUser) it.next();
         return usr;
     }
 
