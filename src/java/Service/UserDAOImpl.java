@@ -66,7 +66,7 @@ public class UserDAOImpl implements UserDAO {
         return jdbcTemplate.query("select Customers.customerid, firstname, lastname, "
                     + "street, city, state, zip, phone, username, password, enabled "
                     + "from Customers join CustomerAccounts on Customers.customerid=CustomerAccounts.customerid"
-                    + " order by Customers.lastname",
+                    + " order by CustomerAccounts.enabled, Customers.lastname",
                     new NewUsrRowMapper());
     }
 
