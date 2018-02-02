@@ -6,7 +6,6 @@
 package Service;
 
 import Model.newUser;
-import Model.User;
 import java.sql.Types;
 import java.util.Collections;
 import org.springframework.jdbc.core.RowMapper;
