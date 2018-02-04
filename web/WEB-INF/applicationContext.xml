@@ -17,6 +17,18 @@
     <bean id="OrdersDAO" class="Service.OrdersDAOImpl">
         <property name="dataSource" ref="dataSource" />
     </bean>
+       
+    <bean id="PackageDAO" class="Service.PackageDAOImpl">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    
+    <bean id="PkgOrderDAO" class="Service.PkgOrderDAOImpl">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    
+    <bean id="ServiceAreaDAO" class="Service.ServiceAreaDAOImpl">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
     
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="dataSource" />
