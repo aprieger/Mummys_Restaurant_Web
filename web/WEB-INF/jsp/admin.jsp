@@ -10,7 +10,7 @@
     </head>
     <body>
         <div>
-          <div className="banner-img"></div>
+          <div class="banner-img"></div>
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
@@ -20,25 +20,19 @@
                 </ul>
             </nav>
           </div>
-        <h3>Welcome ${worker.firstName}, you are logged into the system !</h3>
-        <table> 
-            <tr> 
-                <td><a href="AdminWorkerMain.htm">Access employee records</a></td> 
-            </tr>
-            <tr> 
-                <td><a href="Register.htm">Access customer records</a></td> 
-            </tr>
-            <tr> 
-                <td><a href="Register.htm">Access customer credit cards</a></td> 
-            </tr>
-            <tr> 
-                <td><a href="Register.htm">Access product records</a></td> 
-            </tr>
-            <tr> 
-                <td><a href="Register.htm">Access order records</a></td> 
-            </tr>
-        </table>   
-        <p>
+        <div class="workerTables">
+         <form:form method="POST" commandName="worker">
+            <table><br>
+                <tr><h3>Administration Main Page</h3></tr>   
+            <tr><td><input type="submit" class="cssButton" name="first" value="Access employee records"></td> 
+                <td> <input type="submit" class="cssButton" name="second" value="Access customer records" ></td></tr> 
+            <tr><td> <input type="submit" class="cssButton" name="third" value="Access credit card records"></td>
+            <td> <input type="submit" class="cssButton" name="fourth" value="Access product records"></td></tr>
+            <tr><td> <input type="submit" class="cssButton" name="fifth" value="Access product records"></td>
+            <td><input type="submit" class="cssButton" name="back" value="Back"></td></tr>
+          </table>
+         </form:form>
+        </div>
     </body>
 </html>
 

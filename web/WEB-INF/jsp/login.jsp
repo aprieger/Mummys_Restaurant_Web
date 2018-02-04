@@ -3,7 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
-
     <head>
         <title>Home Page</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -40,7 +39,7 @@
                 <td><form:errors path="password" cssClass="error" /></td>
             </tr> 
             <tr> 
-                <td colspan="4">
+                <td colspan="2">
                 <input type="submit"></td> 
             </tr> 
           </table> 

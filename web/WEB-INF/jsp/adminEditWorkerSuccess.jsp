@@ -1,13 +1,14 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%> 
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Change password email sent</title>
-        <link href="css/mum.css" rel="stylesheet"> 
+        <title>Registration Success</title>
+        <link href="css/mum.css" rel="stylesheet">  
     </head>
     <body>
+        <body>
         <div>
           <div class="banner-img"></div>
             <nav>
@@ -18,7 +19,12 @@
                     <li><a href="#about">About</a></li> 
                 </ul>
             </nav>
-          </div>
-        <h1>An email has been sent with a link to reset your password.</h1>
+        </div><br>
+        <form:form >
+            <div style="text-align: center">
+        <h3>The employee information was update to the system!<br/></h3>
+        <input type="submit"  formaction="AdminWorkerMain.htm" class="cssButton" name="back" value="Back to Admin Main">
+            </div>
+            </form:form>    
     </body>
 </html>

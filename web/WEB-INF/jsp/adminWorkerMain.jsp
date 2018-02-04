@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -6,10 +7,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Administration: Worker Records</title>
         <link href="css/mum.css" rel="stylesheet"> 
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        
     </head>
     <body>
         <div>
-          <div className="banner-img"></div>
+          <div class="banner-img"></div>
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
@@ -19,19 +22,17 @@
                 </ul>
             </nav>
           </div>
-        <h1>Administration Worker Main Page</h1>
-        <table> 
-            <tr> 
-                <td><a href="AdminAddWorker.htm">Add an employee</a></td> 
-            </tr>
-            <tr> 
-                <td><a href="AdminDeleteWorker.htm">Delete an employee</a></td> 
-            </tr>
-            <tr> 
-                <td><a href="AdminEditWorker.htm">Update an employee</a></td>
-            </tr>
-            <tr> 
-                <td><a href="AdminViewWorker.htm">View an employee</a></td>
-            </tr>
+        <div class="workerTables">
+         <form:form method="POST" commandName="worker">
+            <table><br>
+                <tr><h3>Administration Worker Main Page</h3></tr>   
+            <tr><td><input type="submit" class="cssButton" name="first" value="Add an employee"></td> 
+                <td> <input type="submit" class="cssButton" name="second" value="Delete an employee" ></td></tr> 
+            <tr><td> <input type="submit" class="cssButton" name="third" value="Update an employee"></td>
+            <td> <input type="submit" class="cssButton" name="fourth" value="View an employee"></td></tr>
+            <tr><td colspan="2" align="center"><input type="submit" class="cssButton" name="back" value="Back to Admin Main"></td></tr>
+          </table>
+         </form:form>
+        </div>
     </body>
 </html>

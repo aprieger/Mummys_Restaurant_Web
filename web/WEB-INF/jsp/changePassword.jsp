@@ -10,7 +10,7 @@
     </head>
     <body>
         <div>
-          <div className="banner-img"></div>
+          <div class="banner-img"></div>
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
