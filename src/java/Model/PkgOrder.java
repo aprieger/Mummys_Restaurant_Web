@@ -1,6 +1,6 @@
 package Model;
 
-public class PkgOrder { 
+public class PkgOrder {
     private int pkgOrderId;
     private int orderId;
     private int packageIdKey;
@@ -10,13 +10,6 @@ public class PkgOrder {
     private int isOpen;
 
     public PkgOrder() {
-        this.pkgOrderId = 0;
-        this.orderId = 0;
-        this.packageIdKey = 0;
-        this.customerId = 0;
-        this.pricePerPkg = 0;
-        this.quantity = 0;
-        this.isOpen = 0;
     }
 
     public PkgOrder(int pkgOrderId, int orderId, int packageId, int customerId, double pricePerPkg, int Quantity, int isOpen) {

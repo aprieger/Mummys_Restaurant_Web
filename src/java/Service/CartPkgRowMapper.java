@@ -12,7 +12,7 @@ public class CartPkgRowMapper implements RowMapper {
         c.setoOrderId(rs.getInt(2));
         c.setoPackageId(rs.getInt(3));
         c.setoCustomerId(rs.getInt(4));
-        c.setoPricePerPkg(rs.getInt(5));
+        c.setoPricePerPkg(rs.getDouble(5));
         c.setoQuantity(rs.getInt(6));
         c.setoIsOpen(rs.getInt(7));
         

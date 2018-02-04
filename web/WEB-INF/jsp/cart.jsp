@@ -17,7 +17,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <style>
-            .menuTitle {
+            .title {
                 text-align: center;
                 font-family: Garmond;
             }
@@ -96,7 +96,7 @@
         </nav><br>
         <input id="menuBtn" type="button"  onclick="window.location = 'menu.htm'" value="Back To Menu" >
         <table id="packageTable">
-            <caption class="menuTitle">Cart</caption>
+            <caption class="title">Cart</caption>
             <thead>
                 <tr>
                     <th>Package Order Id:</th>
@@ -130,6 +130,7 @@
                         </td>
                     </tr>
                 </c:forEach>
+                    <tr><td colspan="9">Subtotal: $${subtotalPrice}</td></tr>
             </tbody>
         </table>
     </body>

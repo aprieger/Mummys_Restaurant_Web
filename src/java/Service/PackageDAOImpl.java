@@ -7,6 +7,8 @@ import Model.Package;
 import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 //Package DAO implementation class that impelments the PackageDAO class
 //creates functions to be used by various controllers to communicated between the database

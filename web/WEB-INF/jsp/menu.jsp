@@ -28,7 +28,7 @@
             });
         </script>
         <style>
-            .menuTitle {
+            .title {
                 text-align: center;
                 font-family: Garmond;
                 font-size: 2em;
@@ -115,7 +115,7 @@
         <input class="button" id="cartBtn" type="button"  onclick="window.location = 'cart.htm'" value="View Cart" >
         <input class="button" id="checkoutBtn" type="button"  onclick="window.location = 'choosePaymentOption.htm'" value="Go To Checkout" >
         <table id="packageTable">
-            <caption class="menuTitle">Menu</caption>
+            <caption class="title">Menu</caption>
             <thead>
                 <tr>
                     <th>Id</th>

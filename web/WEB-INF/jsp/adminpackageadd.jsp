@@ -26,15 +26,21 @@
             <form:label path="description">Description: </form:label>
             <form:input path="description" type="text" name="description" value="" /><br>
             <form:label path="mealCategory">Meal Category</form:label>
-            <form:input path="mealCategory" type="text" name="mealCategory" value="" /><br>
+            <form:select path="mealCategory">
+                <form:options items="${catList}" />
+            </form:select><br>
             <form:label path="imageSource">Image Source</form:label>
             <form:input path="imageSource" type="text" name="imageSource" value="" /><br>        
             <form:label path="price">Price</form:label>
             <form:input path="price" type="text" name="price" value="" /><br>  
             <form:label path="isSpecial">Is Special</form:label>
-            <form:input path="isSpecial" type="text" name="isSpecial" value="" /><br>  
+            <form:select path="isSpecial">
+                <form:options items="${specList}" />
+            </form:select><br>
             <form:label path="mealType">Meal Type</form:label>
-            <form:input path="mealType" type="text" name="mealType" value="" /><br>          
+            <form:select path="mealType">
+                <form:options items="${typeList}" />
+            </form:select><br> 
             <input type="submit" value="Confirm Addition">
         </form:form>
     </body>

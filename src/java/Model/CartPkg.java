@@ -158,6 +158,9 @@ public class CartPkg {
     public void setpMealType(String pMealType) {
         this.pMealType = pMealType;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "CartPkg{" + "oPkgOrderId=" + oPkgOrderId + ", oOrderId=" + oOrderId + ", oPackageId=" + oPackageId + ", oCustomerId=" + oCustomerId + ", oPricePerPkg=" + oPricePerPkg + ", oQuantity=" + oQuantity + ", oIsOpen=" + oIsOpen + ", pPackageId=" + pPackageId + ", pName=" + pName + ", pDescription=" + pDescription + ", pMealCategory=" + pMealCategory + ", pImageSource=" + pImageSource + ", pPrice=" + pPrice + ", pIsSpecial=" + pIsSpecial + ", pMealType=" + pMealType + '}';
+    }
 }

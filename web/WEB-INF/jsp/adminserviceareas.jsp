@@ -12,7 +12,7 @@
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
-        <title>Admin: Package Orders</title>
+        <title>Admin: Service Areas</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
@@ -31,9 +31,6 @@
                 width: 90%;
                 margin: auto;
             }
-            .packageImage{
-                width: 10em;
-            }
 
             tbody tr:hover.selected td,
             tbody tr:hover td {
@@ -44,29 +41,33 @@
     </head>
     <body>
         <input id="menuBtn" type="button"  onclick="window.location = 'index.htm'" value="Back To Index" >
-        <table id="pkgOrdersTable">
-            <caption class="PkgOrdersTitle">Package Orders</caption>
+        <input id="addBtn" type="button"  onclick="window.location = 'adminserviceareaadd.htm'" value="Add New Service Area" >
+        <table id="packageTable">
+            <caption class="packagesTitle">Service Areas</caption>
             <thead>
                 <tr>
-                    <th>Pkg Order ID</th>
-                    <th>Order ID</th>
-                    <th>Package ID</th>
-                    <th>Customer ID</th>
-                    <th>Price Per Pkg</th>
-                    <th>Quantity</th>
-                    <th>Is Open</th>
+                    <th>Area Id</th>
+                    <th>Name</th>
+                    <th>Area Code</th>
+                    <th>Package Id</th>
+                    <th>Tax Rate</th>
                 </tr>
             </thead>
             <tbody>
-                <c:forEach items="${adminPkgOrderList}" var="pack">
+                <c:forEach items="${adminServiceAreaList}" var="svc">
                     <tr>
-                        <td>${pack.pkgOrderId}</td>
-                        <td>${pack.orderId}</td>
-                        <td>${pack.packageIdKey}</td>
-                        <td>${pack.customerId}</td>
-                        <td>${pack.pricePerPkg}</td>
-                        <td>${pack.quantity}</td>
-                        <td>${pack.isOpen}</td>
+                        <td>${svc.areaId}</td>
+                        <td>${svc.name}</td>
+                        <td>${svc.areaCode}</td>
+                        <td>${svc.packageId}</td>
+                        <td>${svc.taxRate}</td>
+                        <td style="display: flex">
+                            <a href="adminserviceareaedit.htm?areaId=${svc.areaId}"><button id="editButton">Edit</button></a>
+                            <form:form method="POST" action="${userActionUrl}" modelAttribute="svcAreaDeleteForm">
+                                <form:input path="areaId" type="hidden" name="areaId" value="${svc.areaId}" />
+                                <input type="submit" value="Delete">
+                            </form:form>
+                        </td>
                     </tr>
                 </c:forEach>
             </tbody>
