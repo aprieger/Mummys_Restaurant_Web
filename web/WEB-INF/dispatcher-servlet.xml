@@ -42,9 +42,12 @@
                 <prop key="adminpackageedit.htm">adminPackageEditController</prop>
                 <prop key="adminpackageadd.htm">adminPackageAddController</prop>
                 <prop key="adminpkgorders.htm">adminPkgOrdersController</prop>
+                <prop key="adminserviceareas.htm">adminServiceAreasController</prop>
+                <prop key="adminserviceareaadd.htm">adminServiceAreaAddController</prop>
+                <prop key="adminserviceareaedit.htm">adminServiceAreaEditController</prop>
                 <prop key="cart.htm">cartController</prop>
                 <prop key="menu.htm">menuController</prop>
-                <prop key="package.htm">packageController</prop>                
+                <prop key="package.htm">packageController</prop>
             </props>
         </property>
     </bean>
@@ -189,6 +192,18 @@
         class="Controller.AdminPkgOrdersController"
         p:pkgOrderDAO-ref="pkgOrderDAO"/>
     
+    <bean name="adminServiceAreasController"
+        class="Controller.AdminServiceAreasController"
+        p:serviceAreaDAO-ref="serviceAreaDAO"/>
+    
+    <bean name="adminServiceAreaEditController"
+        class="Controller.AdminServiceAreaEditController"
+        p:serviceAreaDAO-ref="serviceAreaDAO"/>
+    
+    <bean name="adminServiceAreaAddController"
+        class="Controller.AdminServiceAreaAddController"
+        p:serviceAreaDAO-ref="serviceAreaDAO"/>
+    
     <bean name="cartController"
         class="Controller.CartController"
         p:packageDAO-ref="packageDAO"
@@ -202,14 +217,21 @@
         class="Controller.PackageController"
         p:packageDAO-ref="packageDAO"
         p:pkgOrderDAO-ref="pkgOrderDAO"
-        p:serviceAreaDAO-ref="serviceAreaDAO"/>
+        p:serviceAreaDAO-ref="serviceAreaDAO"
+        p:pkgOrderValidator-ref="pkgOrderValidator"/>
 
     <bean name="packageDAO" class="Service.PackageDAOImpl"></bean>
     <bean name="pkgOrderDAO" class="Service.PkgOrderDAOImpl"></bean>
     <bean name="serviceAreaDAO" class="Service.ServiceAreaDAOImpl"></bean>
     
-    <bean id="packageValidator"
+    <bean id="PackageValidator"
         class="Validator.PackageValidator"
         p:packageDAO-ref="packageDAO"/>
-       
+    
+    <bean id="pkgOrderValidator"
+        class="Validator.PkgOrderValidator"
+        p:pkgOrderDAO-ref="pkgOrderDAO"/>
+    
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource" p:basename="messages" />
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
 </beans>
