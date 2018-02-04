@@ -19,7 +19,7 @@ public class ServiceAreaDAOImpl implements ServiceAreaDAO{
     @Override
     public void addServiceArea(ServiceArea svc) {           
         String updateStr = ("INSERT INTO ServiceAreas (Area_Id, Name, Area_Code, Package_Id, Tax_Rate)"
-                + " VALUES (?,?,?,?,?,?,?,?)");
+                + " VALUES (?,?,?,?,?)");
         jdbcTemplate.update(updateStr, new Object[]{
                 this.getNextAreaId(), svc.getName(), svc.getAreaCode(), svc.getPackageId(), svc.getTaxRate()});
     }
@@ -28,6 +28,14 @@ public class ServiceAreaDAOImpl implements ServiceAreaDAO{
         return jdbcTemplate.queryForObject("SELECT MAX(Area_Id)FROM ServiceAreas",Integer.class)+1;
     }
     @Override
+    public void editServiceArea(ServiceArea svcEdit){
+        this.editName(svcEdit.getAreaId(),svcEdit.getName());
+        this.editAreaCode(svcEdit.getAreaId(),svcEdit.getAreaCode());
+        this.editPackageId(svcEdit.getAreaId(), svcEdit.getPackageId());
+        this.editTaxRate(svcEdit.getAreaId(), svcEdit.getTaxRate());
+    }
+    
+    @Override
     public void editName(int editServiceAreaId, String newName) {
         String updateStr = ("UPDATE ServiceAreas SET Name='"+newName+"' WHERE Area_Id="+editServiceAreaId);
         jdbcTemplate.execute(updateStr);
@@ -35,6 +43,11 @@ public class ServiceAreaDAOImpl implements ServiceAreaDAO{
     @Override
     public void editAreaCode(int editServiceAreaId, int newAreaCode) {
         String updateStr = ("UPDATE ServiceAreas SET Area_Code="+newAreaCode+" WHERE Area_Id="+editServiceAreaId);
+        jdbcTemplate.execute(updateStr);
+    }
+    @Override
+    public void editPackageId(int editServiceAreaId, int packageId) {
+        String updateStr = ("UPDATE ServiceAreas SET Package_Id="+packageId+" WHERE Area_Id="+editServiceAreaId);
         jdbcTemplate.execute(updateStr);
     }
     @Override

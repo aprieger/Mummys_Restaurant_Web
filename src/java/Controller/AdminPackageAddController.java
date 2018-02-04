@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import Service.PackageDAO;
+import java.util.ArrayList;
+import java.util.List;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -28,6 +30,21 @@ public class AdminPackageAddController{
     public ModelAndView onPageLoad(Model model, HttpServletRequest request, HttpServletResponse response) {
 	Package pkg = new Package();
        	model.addAttribute("pkgAddForm", pkg);
+        ArrayList<String> cats = new ArrayList();
+        cats.add("Breakfast");
+        cats.add("Lunch");
+        cats.add("Dinner");
+        ArrayList<String> specs = new ArrayList();
+        specs.add("Special");
+        specs.add("Regular");
+        ArrayList<String> types = new ArrayList();
+        types.add("Vegetarian");
+        types.add("Vegetarian Spicy");
+        types.add("Non-Vegetarian");
+        types.add("Non-Vegetarian Spicy");
+        model.addAttribute("catList", cats);
+        model.addAttribute("specList", specs);
+        model.addAttribute("typeList", types);
         return new ModelAndView("adminpackageadd");
     }
     //Form submission calls this method to handle the form using the model attribute  and performs its function

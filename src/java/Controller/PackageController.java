@@ -3,12 +3,14 @@ package Controller;
 import Model.Package;
 import Model.*;
 import Service.*;
-import Validator.PackageValidator;
+import Validator.*;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -25,17 +27,14 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/packages")
 public class PackageController{
     int customerId;
-    
     private PackageDAO packageDAO;
     private PkgOrderDAO pkgOrderDAO;
     private ServiceAreaDAO serviceAreaDAO;
-    @Autowired
-    private PackageValidator packageValidator;
+    private PkgOrderValidator pkgOrderValidator;
     
-    @InitBinder
-    protected void initBinder(WebDataBinder binder) {
-		binder.setValidator(packageValidator);
-	}
+    public void setpkgOrderValidator(PkgOrderValidator pkgOrderValidator) {
+        this.pkgOrderValidator = pkgOrderValidator;
+    }
     
     public void setPackageDAO(PackageDAO packageDAO) {
         this.packageDAO = packageDAO;
@@ -51,7 +50,8 @@ public class PackageController{
     @RequestMapping(value = "/package", method = RequestMethod.GET)
     public ModelAndView onPageLoad(Model model, HttpServletRequest request, HttpServletResponse response) {
         try {
-            customerId = Integer.parseInt(request.getSession().getAttribute("customerId").toString());
+//            customerId = Integer.parseInt(request.getSession().getAttribute("customerId").toString());
+            customerId=1;
             PkgOrder pkgOrder = new PkgOrder();
             Package newPackage = packageDAO.getSinglePackageData(Integer.parseInt(request.getParameter("packageId")));
             List<ServiceArea> svcArea = serviceAreaDAO.getAllServiceAreasByPackageID(Integer.parseInt(request.getParameter("packageId")));
@@ -68,19 +68,24 @@ public class PackageController{
             return "redirect:/cart.htm";
         }
         else {
-            PkgOrder newPkgOrder = new PkgOrder();
-            Package pkg = packageDAO.getSinglePackageData(formPkgOrder.getPackageIdKey());
+            if (formPkgOrder.getQuantity()!=0) {
+                PkgOrder newPkgOrder = new PkgOrder();
+                Package pkg = packageDAO.getSinglePackageData(formPkgOrder.getPackageIdKey());
 
-            newPkgOrder.setPkgOrderId(pkgOrderDAO.getNextPkgOrderId());
-            newPkgOrder.setOrderId(0);
-            newPkgOrder.setPackageIdKey(formPkgOrder.getPackageIdKey());
-            newPkgOrder.setCustomerId(customerId);
-            newPkgOrder.setPricePerPkg(pkg.getPrice());
-            newPkgOrder.setQuantity(formPkgOrder.getQuantity());
-            newPkgOrder.setIsOpen(1);
-            pkgOrderDAO.addOpenPkgOrder(newPkgOrder);
+                newPkgOrder.setPkgOrderId(pkgOrderDAO.getNextPkgOrderId());
+                newPkgOrder.setOrderId(0);
+                newPkgOrder.setPackageIdKey(formPkgOrder.getPackageIdKey());
+                newPkgOrder.setCustomerId(customerId);
+                newPkgOrder.setPricePerPkg(pkg.getPrice());
+                newPkgOrder.setQuantity(formPkgOrder.getQuantity());
+                newPkgOrder.setIsOpen(1);
+                pkgOrderDAO.addOpenPkgOrder(newPkgOrder);
 
-            return "redirect:/cart.htm";
+                return "redirect:/cart.htm";
+            }
+            else {
+                return "redirect:/cart.htm";
+            }
         }
     }
 }

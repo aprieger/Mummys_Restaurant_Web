@@ -151,6 +151,9 @@
                 background-size: cover;
                 position: relative;
             }
+            .error {
+                color: red; font-weight: bold;
+            }
         </style>
     </head>
     <body>
@@ -170,7 +173,7 @@
                 <form:input path="packageIdKey" type="hidden" name="packageIdKey" value="${packageItemDetails.packageId}" />
                 <form:label path="quantity">Quantity:</form:label>
                 <form:input path="quantity" type="text" name="quantity" value="1" />
-                <form:errors path="quantity"/>
+                <form:errors path="quantity" cssClass="error"/>
                 <input type="submit" value="Add To Cart">
             </form:form>
         </div>
