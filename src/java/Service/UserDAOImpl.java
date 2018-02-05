@@ -107,7 +107,12 @@ public class UserDAOImpl implements UserDAO {
             jdbcTemplate.update("delete from Login where login_id='" + username + "'");
         }
     }
-
+    
+    @Override
+    public long getId(String username){
+        return jdbcTemplate.queryForObject("select customerid from CustomerAccounts where username='" + username + "'", Integer.class);
+    }
+    
     private int findId(long id) {
         return jdbcTemplate.queryForObject("select count(*) from Customers where customerid=" + id, Integer.class);
     }
