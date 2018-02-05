@@ -30,11 +30,8 @@ public class PackageController{
     private PackageDAO packageDAO;
     private PkgOrderDAO pkgOrderDAO;
     private ServiceAreaDAO serviceAreaDAO;
+    @Autowired
     private PkgOrderValidator pkgOrderValidator;
-    
-    public void setpkgOrderValidator(PkgOrderValidator pkgOrderValidator) {
-        this.pkgOrderValidator = pkgOrderValidator;
-    }
     
     public void setPackageDAO(PackageDAO packageDAO) {
         this.packageDAO = packageDAO;

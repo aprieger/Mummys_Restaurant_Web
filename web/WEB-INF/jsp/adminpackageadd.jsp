@@ -12,10 +12,8 @@
         <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Admin: Add Package</title>
-        
     </head>
     <body>
         <input id="menuBtn" type="button"  onclick="window.location = 'adminpackages.htm'" value="Back To Admin: Packages" >

@@ -30,18 +30,25 @@ public class AdminPackageAddController{
     public ModelAndView onPageLoad(Model model, HttpServletRequest request, HttpServletResponse response) {
 	Package pkg = new Package();
        	model.addAttribute("pkgAddForm", pkg);
+        
+        //set up the categories drop down list
         ArrayList<String> cats = new ArrayList();
         cats.add("Breakfast");
         cats.add("Lunch");
         cats.add("Dinner");
+        
+        //set up the special drop down list
         ArrayList<String> specs = new ArrayList();
         specs.add("Special");
         specs.add("Regular");
+        
+        //set up the type drop down list
         ArrayList<String> types = new ArrayList();
         types.add("Vegetarian");
         types.add("Vegetarian Spicy");
         types.add("Non-Vegetarian");
         types.add("Non-Vegetarian Spicy");
+        
         model.addAttribute("catList", cats);
         model.addAttribute("specList", specs);
         model.addAttribute("typeList", types);

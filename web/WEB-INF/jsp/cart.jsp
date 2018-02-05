@@ -19,17 +19,24 @@
         <style>
             .title {
                 text-align: center;
-                font-family: Garmond;
+                font-family: Century Gothic;
+                font-weight: bold;
+                color: greenyellow;
+                background-color: green;
+                font-size: 2em;
             }
             table,tr,th,td{
                 border: 1px solid black;
                 padding: 5px;
+                font-family: Century Gothic;
+                font-size: 1.05em;
             }
 
             table {
                 border-collapse: collapse;
                 width: 90%;
                 margin: auto;
+                font-family: Century Gothic;
             }
             .packageImage{
                 width: 10em;
@@ -40,6 +47,7 @@
                 padding: 0;
                 overflow: hidden;
                 background-color: #006400;
+                font-family: Century Gothic;
             }
 
             li {
@@ -52,16 +60,18 @@
                 text-align: center;
                 padding: 14px 16px;
                 text-decoration: none;
+                font-family: Century Gothic;
             }
 
             li a:hover {
                 background-color: #ADFF2F;
                 color: #006400;
-
+                font-family: Century Gothic;
             }
             li a:active {
                 background-color: #ADFF2F;
                 color: #006400;
+                font-family: Century Gothic;
             }
             .banner-img{
                 /* The image used */
@@ -81,6 +91,23 @@
             tbody tr:hover td {
               background-color: orangered;
               cursor: pointer;
+              font-family: Century Gothic;
+            }
+            
+            .button {
+                font-family: Century Gothic;
+                font-size: 1.1em;
+                margin: 1em;
+                background-color: green;
+                color:white;
+            }
+            .button:hover {
+                background-color: greenyellow;
+            }
+            #buttons {
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
         </style>
     </head>
@@ -93,35 +120,36 @@
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#about">About</a></li> 
             </ul>
-        </nav><br>
-        <input id="menuBtn" type="button"  onclick="window.location = 'menu.htm'" value="Back To Menu" >
+        </nav>
+        <div id="buttons">
+            <input class="button" type="button"  onclick="window.location = 'menu.htm'" value="Back To Menu" >
+            <input class="button" type="button"  onclick="window.location = 'choosePaymentOption.htm'" value="Go To Checkout" >
+        </div>
         <table id="packageTable">
             <caption class="title">Cart</caption>
             <thead>
                 <tr>
-                    <th>Package Order Id:</th>
                     <th>Package Id:</th>
                     <th>Package Name:</th>
                     <th>Price Per Package:</th>
                     <th>Quantity:</th>
-                    <th>Image:</th>
                     <th>Meal Category:</th>
                     <th>Special?</th>
                     <th>Meal Type:</th>
+                    <th>Total Price</th>
                 </tr>
             </thead>
             <tbody>
                 <c:forEach items="${cartPkgList}" var="pack">
                     <tr>
-                        <td>${pack.oPkgOrderId}</td>
                         <td>${pack.pPackageId}</td>
                         <td>${pack.pName}</td>
-                        <td>${pack.oPricePerPkg}</td>
+                        <td>$${pack.oPricePerPkg}</td>
                         <td>${pack.oQuantity}</td>
-                        <td>${pack.pImageSource}</td>
                         <td>${pack.pMealCategory}</td>
                         <td>${pack.pIsSpecial}</td>
                         <td>${pack.pMealType}</td>
+                        <td>$${pack.oPricePerPkg*pack.oQuantity}</td>
                         <td>
                             <form:form method="POST" action="${userActionUrl}" modelAttribute="pkgForm">
                                 <form:input path="pkgOrderId" type="hidden" name="pkgOrderId" value="${pack.oPkgOrderId}" />
