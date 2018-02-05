@@ -27,4 +27,6 @@ public interface UserDAO {
     public void banOrEnableCustomer(int id);
     
     public void deleteCustomer(int id);
+    
+    public long getId(String username);
 }
