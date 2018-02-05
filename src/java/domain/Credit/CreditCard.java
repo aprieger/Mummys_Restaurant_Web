@@ -1,3 +1,7 @@
+/*
+This class defines a CreditCard Object
+
+*/
 package domain.Credit;
 
 public class CreditCard
@@ -5,12 +9,12 @@ public class CreditCard
     private int CREDIT_ID;
     private int CUSTOMER_ID;
     private int CARD_NUMBER;
-    private String BRAND;
-    private String SECURITY_NUMBER;
-    private String EXPERATION_DATE;
-    private String NAME_ON_CARD;
-    private String STREET;
-    private String CITY;
+    private String BRAND = "";
+    private int SECURITY_NUMBER;
+    private String EXPERATION_DATE = "";
+    private String NAME_ON_CARD = "";
+    private String STREET = "";
+    private String CITY = "";
     private int AREA_CODE;
     private int EX_YEAR;
     private int EX_MONTH;
@@ -35,7 +39,7 @@ public class CreditCard
     {
         
     }
-    public CreditCard(int CREDIT_ID, int CUSTOMER_ID, int CARD_NUMBER, String BRAND, String SECURITY_NUMBER, String EXPERATION_DATE, String NAME_ON_CARD, String STREET, String CITY, int AREA_CODE) {
+    public CreditCard(int CREDIT_ID, int CUSTOMER_ID, int CARD_NUMBER, String BRAND, int SECURITY_NUMBER, String EXPERATION_DATE, String NAME_ON_CARD, String STREET, String CITY, int AREA_CODE) {
         this.CREDIT_ID = CREDIT_ID;
         this.CUSTOMER_ID = CUSTOMER_ID;
         this.CARD_NUMBER = CARD_NUMBER;
@@ -85,11 +89,11 @@ public class CreditCard
         this.BRAND = BRAND;
     }
 
-    public String getSECURITY_NUMBER() {
+    public int getSECURITY_NUMBER() {
         return SECURITY_NUMBER;
     }
 
-    public void setSECURITY_NUMBER(String SECURITY_NUMBER) {
+    public void setSECURITY_NUMBER(int SECURITY_NUMBER) {
         this.SECURITY_NUMBER = SECURITY_NUMBER;
     }
 
