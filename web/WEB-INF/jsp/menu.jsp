@@ -30,19 +30,31 @@
         <style>
             .title {
                 text-align: center;
-                font-family: Garmond;
+                font-family: Century Gothic;
+                font-weight: bold;
+                color: greenyellow;
+                background-color: green;
                 font-size: 2em;
             }
-            table,tr,th,td{
+            table,th{
                 border: 1px solid black;
-                font-family: Garmond;
+                font-family: Century Gothic;
                 font-size: 1.1em;
                 padding: 5px;
+            }
+            th {
+                text-align: center;
+            }
+            tr, td {
+                border-bottom: 1px solid black;
+                font-family: Century Gothic;
+                font-size: 1.1em;
+                padding-left:1em;
             }
 
             table {
                 border-collapse: collapse;
-                font-family: Garmond;
+                font-family: Century Gothic;
                 width: 90%;
                 margin: auto;
             }
@@ -92,8 +104,19 @@
                 position: relative;
             }
             .button {
-                font-family: Garmond;
+                font-family: Century Gothic;
                 font-size: 1.1em;
+                margin: 1em;
+                background-color: green;
+                color:white;
+            }
+            .button:hover {
+                background-color: greenyellow;
+            }
+            #buttons {
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
             tbody tr:hover.selected td,
             tbody tr:hover td {
@@ -111,18 +134,19 @@
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#about">About</a></li> 
             </ul>
-        </nav><br>
-        <input class="button" id="cartBtn" type="button"  onclick="window.location = 'cart.htm'" value="View Cart" >
-        <input class="button" id="checkoutBtn" type="button"  onclick="window.location = 'choosePaymentOption.htm'" value="Go To Checkout" >
+        </nav>
+        <div id="buttons">
+            <input class="button" id="cartBtn" type="button"  onclick="window.location = 'cart.htm'" value="View Cart" >
+            <input class="button" id="checkoutBtn" type="button"  onclick="window.location = 'choosePaymentOption.htm'" value="Go To Checkout" >
+        </div>
         <table id="packageTable">
             <caption class="title">Menu</caption>
             <thead>
                 <tr>
                     <th>Id</th>
                     <th>Name</th>
-                    <th>Description</th>
                     <th>Category</th>
-                    <th>Image</th>
+                    <th width="120em">Image</th>
                     <th>Price</th>
                     <th>Special</th>
                     <th>Type</th>
@@ -133,12 +157,11 @@
                     <tr>
                         <td href="package.htm" package="${pack.packageId}">${pack.packageId}</td>
                         <td>${pack.name}</td>
-                        <td>${pack.description}</td>
                         <td>${pack.mealCategory}</td>
                         <td>
                             <img width="120em" src=images/${pack.imageSource} alt=${pack.imageSource}></img>
                         </td>
-                        <td>${pack.price}</td>
+                        <td>$${pack.price}</td>
                         <td>${pack.isSpecial}</td>
                         <td>${pack.mealType}</td>
                     </tr>

@@ -27,15 +27,15 @@
                 margin-bottom: 3em;
             }
             #name {
-                font-size: 3em;
-                font-family: Garamond;
+                font-size: 4em;
+                font-family: Century Gothic;
                 padding: .2em;
                 padding-left:.4em;
                 margin-right: auto;
             }
             #price {
                 font-size: 4em;
-                font-family: Garamond;
+                font-family: Century Gothic;
                 padding: .2em;
                 padding-right:.4em;
             }
@@ -60,42 +60,40 @@
             }
             #description {
                 font-size: 2em;
-                font-family: Garamond;
+                font-family: Century Gothic;
                 padding: .2em;
                 padding-left:.4em;
             }
             #category {
                 font-size: 2em;
-                font-family: Garamond;
+                font-family: Century Gothic;
                 padding: .2em;
                 padding-left:.4em;
             }
             #special {
                 font-size: 2em;
-                font-family: Garamond;
+                font-family: Century Gothic;
                 padding: .2em;
                 padding-left:.4em;
             }
             #type {
                 font-size: 2em;
-                font-family: Garamond;
+                font-family: Century Gothic;
                 padding: .2em;
                 padding-left:.4em;
             }
             #areas {
                 font-size: 2em;
-                font-family: Garamond;
+                font-family: Century Gothic;
                 padding-top: .2em;
                 padding-left:.4em;
             }
             #area {
                 font-size: 2em;
-                font-family: Garamond;
+                font-family: Century Gothic;
                 padding-left:1.2em;
             }
             #image {
-                border-style: solid;
-                border-width: 2px;
                 width:40em;
                 text-align: center;
             }
@@ -155,6 +153,19 @@
                 color: red; font-weight: bold;
             }
         </style>
+        <script type="text/javascript">
+        $(document).ready(function() {
+            $("#formPkg").validate({
+                messages: {
+                    quantity: "Please enter a quantity",
+                },
+                rules: {
+                  quantity: "required",
+                },
+            },
+          });
+        });
+      </script>
     </head>
     <body>
         <div class="banner-img"></div>
@@ -169,7 +180,7 @@
         <p id="packID">ID: ${packageItemDetails.packageId}</p>
         <input id="menuBtn" type="button"  onclick="window.location = 'menu.htm'" value="Back To Menu" >
         <div id="formBox">
-            <form:form method="POST" action="${userActionUrl}" modelAttribute="formPkgOrder">
+            <form:form id="formPkg" method="POST" action="${userActionUrl}" modelAttribute="formPkgOrder">
                 <form:input path="packageIdKey" type="hidden" name="packageIdKey" value="${packageItemDetails.packageId}" />
                 <form:label path="quantity">Quantity:</form:label>
                 <form:input path="quantity" type="text" name="quantity" value="1" />
@@ -179,15 +190,15 @@
         </div>
         <div id="nameAndPrice">
             <div id="name">${packageItemDetails.name}</div>
-            <div id="price">${packageItemDetails.price}</div>
+            <div id="price">$${packageItemDetails.price}</div>
         </div>
         <div id="infoAndImage">
             <div id="info">
                 <p id="description">${packageItemDetails.description}</p>
-                <p id="category">Category : ${packageItemDetails.mealCategory}</p>
-                <p id="special">Special: ${packageItemDetails.isSpecial}</p>
-                <p id="type">Type: ${packageItemDetails.mealType}</p>
-                <p id="areas">Service Areas:</p>
+                <p id="category"><u>Category :</u> ${packageItemDetails.mealCategory}</p>
+                <p id="special"><u>Special:</u> ${packageItemDetails.isSpecial}</p>
+                <p id="type"><u>Type:</u> ${packageItemDetails.mealType}</p>
+                <p id="areas"><u>Service Areas:</u></p>
                 <c:forEach items="${serviceAreaList}" var="svc">
                     <p id="area">${svc.name}</p>
                 </c:forEach>
