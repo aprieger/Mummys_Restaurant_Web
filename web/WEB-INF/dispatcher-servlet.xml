@@ -150,5 +150,5 @@
    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource" p:basename="messages" />
    <context:annotation-config/>
    <context:component-scan base-package="com.syntel" />
-    
+   <mvc:annotation-driven />
 </beans>
