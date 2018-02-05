@@ -29,8 +29,8 @@
             </tr> 
             <tr> 
                 <td>
-                    <input type="submit" class="cssButton" >
-                    <input type="submit" formaction="AdminWorkerMain.htm" class="cssButton" name="back" value="Back to Admin Main"></td>
+                    <input type="submit" class="cssButton" name="find">
+                    <input type="submit" formaction="adminWorkerMain.htm" class="cssButton" name="back" value="Back to Admin Main"></td>
             </tr> 
           </table>
         </form:form> 

@@ -44,9 +44,9 @@
                     <td><c:out value="${worker.getIsAdmin()}" /></td>
                 </tr> 
             </c:forEach>
-                <form:form>
-                     <input type="submit" class="cssButton" value="Delete employee">
-                    <input type="submit" formaction="AdminWorkerMain.htm" class="cssButton" name="back" value="Back to Admin Main">
+                <form:form commandName="worker">
+                    <input type="submit" class="cssButton" name="delete" value="Delete employee">
+                    <input type="submit" formaction="adminWorkerMain.htm" class="cssButton" name="back" value="Back to Admin Main">
                 </form:form>
           </table>
     </body>

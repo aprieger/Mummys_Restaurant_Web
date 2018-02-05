@@ -58,7 +58,7 @@
             <tr> 
                 <td>
                     <input type="submit" class="cssButton" style="margin-left: 10px; margin-right: 90px">
-                    <input type="submit" formaction="AdminWorkerMain.htm" class="cssButton" name="back" value="Back"></button></td>
+                    <input type="submit" formaction="adminWorkerMain.htm" class="cssButton" name="back" value="Back"></button></td>
             </tr> 
           </table> 
         </form:form>

@@ -23,7 +23,7 @@
         <form:form >
             <div style="text-align: center">
         <h3>The employee information was update to the system!<br/></h3>
-        <input type="submit"  formaction="AdminWorkerMain.htm" class="cssButton" name="back" value="Back to Admin Main">
+        <input type="submit"  formaction="adminWorkerMain.htm" class="cssButton" name="back" value="Back to Admin Main">
             </div>
             </form:form>    
     </body>
