@@ -1,3 +1,6 @@
+/*
+This class maps the table rows to a creditCard object. 
+*/
 package DAO.Credit;
 
 import domain.Credit.CreditCard;
@@ -14,7 +17,7 @@ import java.sql.*;
         e.setCUSTOMER_ID(rs.getInt("CUSTOMER_ID")); 
         e.setCARD_NUMBER(rs.getInt("CARD_NUMBER"));
         e.setBRAND(rs.getString("BRAND")); 
-        e.setSECURITY_NUMBER(rs.getString("SECURITY_NUMBER"));
+        e.setSECURITY_NUMBER(rs.getInt("SECURITY_NUMBER"));
         //e.setEXPERATION_DATE(rs.getString("EXPERATION_DATE"));
         e.setNAME_ON_CARD(rs.getString("NAME_ON_CARD")); 
         e.setSTREET(rs.getString("STREET")); 
