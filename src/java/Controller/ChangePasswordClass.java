@@ -6,7 +6,7 @@
 package Controller;
 
 import DAO.LoginDAOImpl;
-import domain.Worker;
+import domain.Login;
 import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,18 +24,18 @@ public class ChangePasswordClass extends SimpleFormController {
     }
    
     public ChangePasswordClass() {
-        setCommandClass(Worker.class);
+        setCommandClass(Login.class);
         setCommandName("changePassword");
     }
     
     @Override
     protected ModelAndView onSubmit(Object command) throws Exception{
-        Worker worker=(Worker)command;
+        Login login =(Login)command;
         try {
-        new LoginDAOImpl().changePassword(worker);
-        return new ModelAndView("changePasswordSuccess","email",worker);
+            new LoginDAOImpl().changePassword(login);
+            return new ModelAndView("changePasswordSuccess","email",login);
         }catch(NullPointerException e){
-         return new ModelAndView("changePassword","changePassword",worker);   
+            return new ModelAndView("changePassword","changePassword",login);   
         }
     }
 }

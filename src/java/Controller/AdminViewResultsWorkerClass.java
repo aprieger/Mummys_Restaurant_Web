@@ -18,5 +18,7 @@ public class AdminViewResultsWorkerClass extends SimpleFormController {
         setCommandClass(Worker.class);
         setCommandName("worker");
     }
+    
+    
 }
 

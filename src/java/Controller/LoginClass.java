@@ -9,9 +9,11 @@ import domain.Login;
 import domain.Worker;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.springframework.validation.BindException;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
+import org.springframework.web.servlet.view.RedirectView;
 /**
  *
  * @author LS5002117
@@ -30,8 +32,7 @@ public class LoginClass extends SimpleFormController {
     }
     
     @Override
-    protected ModelAndView onSubmit(HttpServletRequest request,
-    HttpServletResponse response, Object command, BindException errors)
+    protected ModelAndView onSubmit(Object command )
     throws Exception {
         Login login=(Login)command;
         /*
@@ -42,19 +43,19 @@ public class LoginClass extends SimpleFormController {
           Login l = loginDAO.validateUser(login);
             switch (l.getUserType()) {
                 case 0:
-                    Worker worker = loginDAO.assignUser(login);
-                    return new ModelAndView("worker","worker",worker);
+//                    HttpSession session = request.getSession();
+                    return new ModelAndView(new RedirectView("worker.htm"));
                 case 1:
-                    Worker admin = loginDAO.assignUser(login);
-                    return new ModelAndView("admin","worker",admin);
+//                    Worker admin = loginDAO.assignUser(login);
+                    return new ModelAndView(new RedirectView("admin.htm"));
                 default:
-                    Worker work = (Worker) loginDAO.assignUser(login);
-                    return new ModelAndView("loginSuccess","worker",work);
+//                    Worker work = (Worker) loginfDAO.assignUser(login);
+//                    return new ModelAndView("loginSuccess","worker",work);
+                    return new ModelAndView(new RedirectView("worker.htm"));
             }
         }catch (NullPointerException e) {
             
-          //errors.rejectValue("error","required","userAndPass.required");
-          return showForm(request, response, errors);
+          return new ModelAndView(new RedirectView("login.htm"));
         }
     //Use onSubmit instead of doSubmitAction 
     //when you need access to the Request, Response, or BindException objects
