@@ -13,5 +13,5 @@ public interface LoginDAO {
     public Worker assignUser(Login login);
     public List<Login> getSystemUsers();
     public List<Login> changePassword(Login login);
-    public String getUserId(Login login);
+    public long getUserId(Login login);
 }
