@@ -5,18 +5,25 @@
  */
 package Service;
 
+import Model.CartPkg;
 import Model.Orders;
+import java.util.ArrayList;
 import java.util.List;
 /**
  *
  * @author syntel
+ * Orders interface
  */
 public interface OrdersDAO {
     public List getAllOrders();
     public void insertNewOrder(Orders ordersObject);
     public void updateOrderRow(Orders ordersObject);
     public void deleteOrder(int orderID);
-    public List idOrdersGenerator();
+    public int idOrdersGenerator();
     public List getOrdersByOrderID(int orderID);
+    public List getAllOfTodaysOrders();
+    public ArrayList<Integer> getOpenPkgOrderIDs(int customerID);
+    public List<CartPkg> getPkgOrdersByCustomerAll(int customerID, int orderID);
+    public String getTodaysDate();
 }
 
