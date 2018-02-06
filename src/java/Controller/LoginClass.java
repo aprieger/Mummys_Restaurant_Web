@@ -50,7 +50,7 @@ public class LoginClass extends SimpleFormController {
                 default:
                     long customer = new UserDOAImpl().getId(login.getLoginId());
                     session.setAttribute("customerId", customer);
-                    return new ModelAndView(new RedirectView("worker.htm"));
+                    return new ModelAndView(new RedirectView("customerhome.htm"));
             }
         }catch (NullPointerException e) {
             
