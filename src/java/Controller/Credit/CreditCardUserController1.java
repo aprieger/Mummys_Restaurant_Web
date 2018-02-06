@@ -38,7 +38,7 @@ public class CreditCardUserController1 extends SimpleFormController {
         session = request.getSession(true);
         
         CreditCard card = (CreditCard) command;
-        card.setCUSTOMER_ID(Integer.parseInt(session.getAttribute("customerID").toString()));
+        card.setCUSTOMER_ID(Integer.parseInt(session.getAttribute("customerId").toString()));
         System.out.println(card.toString());
         ApplicationContext ctx=new ClassPathXmlApplicationContext("../../WEB-INF/applicationContext.xml");
         CreditCardDAOImpl cc=(CreditCardDAOImpl)ctx.getBean("CreditCardDAOImpl");
