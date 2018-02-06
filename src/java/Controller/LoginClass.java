@@ -4,7 +4,7 @@
  */
 package Controller;
 
-import DAO.LoginDAO;
+import DAO.*;
 import domain.Login;
 import domain.Worker;
 import Model.newUser;
