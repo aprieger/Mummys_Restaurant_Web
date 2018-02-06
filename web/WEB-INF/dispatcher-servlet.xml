@@ -25,6 +25,9 @@
                 <prop key="editOrder.htm">editOrderController</prop>
                 <prop key="choosePaymentOption.htm">choosePaymentOptionController</prop>
                 <prop key="confirmationPage.htm">confirmationPageController</prop>
+		<prop key="enterFinalOrderInfo.htm">enterFinalOrderInfoController</prop>
+                <prop key="receiptPage.htm">receiptPageController</prop>
+                <prop key="customerViewAllOrders.htm">customerViewAllOrdersController</prop>
                 <prop key="signup.htm">signUpController</prop>
 		<prop key="editCustomers.htm">editCustomersController</prop>
 		<prop key="CreditCardAdminUI.htm">CreditCardAdminController</prop>
@@ -94,6 +97,20 @@
     
     <bean name="seeAllOrdersController"
           class="Controller.SeeAllOrdersController"
+          p:ordersDAO-ref="ordersDAO" />
+	
+    <bean name="enterFinalOrderInfoController" 
+          class="Controller.EnterFinalOrderInfoController"
+          p:ordersDAO-ref="ordersDAO"
+          p:pkgOrderDAO-ref="pkgOrderDAO" />
+    
+    <bean name="receiptPageController"
+          class="Controller.ReceiptPageController"
+          p:ordersDAO-ref="ordersDAO"
+          p:pkgOrderDAO-ref="pkgOrderDAO" />
+    
+    <bean name="customerViewAllOrdersController"
+          class="Controller.CustomerViewAllOrders"
           p:ordersDAO-ref="ordersDAO" />
        
      <!-- CustomerAccount Controllers -->
@@ -217,6 +234,7 @@
 
     <bean name="packageDAO" class="Service.PackageDAOImpl"></bean>
     <bean name="pkgOrderDAO" class="Service.PkgOrderDAOImpl"></bean>
+    <bean name="ordersDAO" class="Service.OrdersDAOImpl" />	
     <bean name="serviceAreaDAO" class="Service.ServiceAreaDAOImpl"></bean>
     
     <bean id="PackageValidator"
