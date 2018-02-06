@@ -27,10 +27,9 @@
             <table><br>
                 <tr><h3>Administration Worker Main Page</h3></tr>   
             <tr><td><input type="submit" class="cssButton" name="first" value="Add an employee"></td> 
-                <td> <input type="submit" class="cssButton" name="second" value="Delete an employee" ></td></tr> 
-            <tr><td> <input type="submit" class="cssButton" name="third" value="Update an employee"></td>
-            <td> <input type="submit" class="cssButton" name="fourth" value="View an employee"></td></tr>
-            <tr><td colspan="2" align="center"><input type="submit" class="cssButton" name="back" value="Back to Admin Main"></td></tr>
+                <td><input type="submit" class="cssButton" name="third" value="Update an employee"></td></tr>
+            <tr><td><input type="submit" class="cssButton" name="fourth" value="View an employee"></td>
+                <td><input type="submit" class="cssButton" name="back" value="Back to Admin Main"></td></tr>
           </table>
          </form:form>
         </div>
