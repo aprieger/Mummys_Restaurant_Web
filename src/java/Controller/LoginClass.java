@@ -53,7 +53,7 @@ public class LoginClass extends SimpleFormController {
                 case 1:
                     return new ModelAndView(new RedirectView("admin.htm"));
                 default:
-                    long customer = userDAO.getId(login.getLoginId());
+                    long customerId = userDAO.getId(login.getLoginId());
                     session.setAttribute("orderId", orderId);
                     session.setAttribute("paymentType", paymentType);
                     session.setAttribute("creditId", creditId);
