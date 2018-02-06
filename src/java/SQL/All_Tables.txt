@@ -26,7 +26,10 @@ EXPERATION_DATE DATE,
 NAME_ON_CARD VARCHAR2(255),
 STREET VARCHAR2(255),
 CITY VARCHAR2(255),
-AREA_CODE INT
+AREA_CODE INT,
+IS_DELEATED INT,
+EX_YEAR INT,
+EX_MONTH INT
 );
 ================================================================================
 CREATE TABLE ORDERS (
