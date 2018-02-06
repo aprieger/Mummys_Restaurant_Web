@@ -43,11 +43,17 @@ INSERT INTO ServiceAreas (Area_Id, Name, Area_Code, Package_Id, Tax_Rate) VALUES
 INSERT INTO ServiceAreas (Area_Id, Name, Area_Code, Package_Id, Tax_Rate) VALUES (9,'Jumeriah Islands',85001,2,.087);
 INSERT INTO ServiceAreas (Area_Id, Name, Area_Code, Package_Id, Tax_Rate) VALUES (10,'Knowledge Village',85054,1,.089);
 
-INSERT INTO WORKERS VALUES (1, 'bob', 'bob', 'username', 'password','1111111111',1,1);
-INSERT INTO WORKERS VALUES (2, 'bob', 'bob', 'username', 'password','1111111111',1,1);
-INSERT INTO WORKERS VALUES (3, 'bob', 'bob', 'username', 'password','1111111111',1,1);
-INSERT INTO WORKERS VALUES (4, 'bob', 'bob', 'username', 'password','1111111111',1,1);
-INSERT INTO WORKERS VALUES (5, 'bob', 'bob', 'username', 'password','1111111111',1,1);
+INSERT INTO WORKERS VALUES ('user', 'password', 1);
+INSERT INTO WORKERS VALUES ('bm10002', 'password', 0);
+INSERT INTO WORKERS VALUES ('ss10003', 'password', 1);
+INSERT INTO WORKERS VALUES ('ad10004', 'password', 0);
+INSERT INTO WORKERS VALUES ('ft10005', 'password', 0);
+
+INSERT INTO WORKERS VALUES (10001, 'bob', 'bob', 'male', '9018120987', 'user', 'password', 1, 1, 'bm10001@mummys.com');
+INSERT INTO WORKERS VALUES (10002, 'john', 'jones', 'male', '9018120987', 'bm10002', 'password', 0, 1, 'jj10002@mummys.com');
+INSERT INTO WORKERS VALUES (10003, 'suzy', 'smith', 'female', '9018120987', 'ss10003', 'password', 1, 1, 'ss10003@mummys.com');
+INSERT INTO WORKERS VALUES (10004, 'amanda', 'dass', 'female', '9018120987', 'ad10004', 'password', 0, 1, 'ad10004@mummys.com');
+INSERT INTO WORKERS VALUES (10005, 'frank', 'thomas', 'male', '9018120987', 'ft10005', 'password', 0, 0, 'ft10005@mummys.com');
 
 INSERT INTO PkgOrders (Pkg_Order_Id, Order_Id, Package_Id, Customer_Id, Price_Per_Pkg, Quantity, Is_Open) VALUES (1,1,1,1,2.99,2,0);
 INSERT INTO PkgOrders (Pkg_Order_Id, Order_Id, Package_Id, Customer_Id, Price_Per_Pkg, Quantity, Is_Open) VALUES (2,2,2,2,7.99,1,0);
