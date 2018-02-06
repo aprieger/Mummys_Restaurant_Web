@@ -1,15 +1,19 @@
+CREATE TABLE Customers(
+    customerid int NOT NULL PRIMARY KEY,
+    firstname varchar(25),
+    lastname varchar(50),
+    Street varchar(75),
+    city varchar(30),
+    state varchar(2),
+    zip int,
+    phone varchar(12)    
+);
+================================================================================
 CREATE TABLE CustomerAccounts(
-Customer_id int NOT NULL PRIMARY KEY,
-First_Name varchar2(25),
-Last_Name varchar2(50),
-Street varchar2(100),
-City varchar2(75),
-State varchar(2),
-Area_Code int,
-Phone_Number varchar2(12),
-Username varchar2(25),
-Password varchar2(25),
-enabled int
+    customerid int,
+    username varchar(25),
+    password varchar(25),
+    enabled int;
 );
 ================================================================================
 CREATE TABLE CREDIT_CARDS (
