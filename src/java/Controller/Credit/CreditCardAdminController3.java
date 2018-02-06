@@ -1,3 +1,8 @@
+/*
+This class is the controller for CreditCardAdmin3.jsp
+it has one mthod that reurns a ModelAndView object and an ArrayList of CreditCard objects. 
+only the last 4 digits are returned
+*/
 package Controller.Credit;
 import DAO.Credit.CreditCardDAOImpl;
 import domain.Credit.CreditCard;

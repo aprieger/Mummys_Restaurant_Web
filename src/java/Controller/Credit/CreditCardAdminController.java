@@ -1,4 +1,7 @@
-
+/*
+This class is the controller for CreditCardAdmin.jsp
+it has one mthod that reurns a ModelAndView object. 
+*/
 package Controller.Credit;
 import DAO.Credit.CreditCardDAOImpl;
 import domain.Credit.CreditCard;

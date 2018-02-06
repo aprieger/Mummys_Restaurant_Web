@@ -36,15 +36,13 @@ public class EditOrderController {
         Orders order = new Orders();
         //establishes an empty vessel that updated information goes into in editOrders.jsp
         model.addAttribute("orderInfo", order);
-        
         //takes in the param passed in from seeAllOrders.jsp
         int orderID = Integer.parseInt(request.getParameter("orderID"));
-        
         //returns the order details, from the db, to the proper input fields in editOrders.jsp
         return new ModelAndView("editOrder", "orderDetail", ordersDAO.getOrdersByOrderID(orderID).get(0));
     }
     
-    //
+    
     @RequestMapping(value = "/editOrder", method = RequestMethod.POST)
     protected ModelAndView updateOrder(@ModelAttribute("orderInfo") Orders order, BindingResult result, BindException errors) throws Exception{
         System.out.println("Why won't this print?");

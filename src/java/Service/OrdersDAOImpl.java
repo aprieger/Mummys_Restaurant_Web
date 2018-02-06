@@ -40,16 +40,6 @@ public class OrdersDAOImpl implements OrdersDAO{
     
     @Override
     public void updateOrderRow(Orders order) {
-        
-        System.out.println("update ORDERS "
-                + "SET CUSTOMER_ID = " + order.getCustomerID()
-                + ", CREDIT_ID = " + order.getCreditID()+ ", PAYMENT_TYPE = " + order.getPaymentType()
-                + ", TOTAL_PRICE = " + order.getTotalPrice() + ", STREET = '" + order.getStreet()
-                + "', CITY = '" + order.getCity() + "', AREA_CODE = " + order.getAreaCode()
-                + ", PHONE_NUMBER = '" + order.getPhoneNumber() + "', DELIVERY_DATE = '" + order.getDeliveryDate()
-                + "', ORDER_DATE = '" + order.getOrderDate() + "', ORDER_STATUS = " + order.getOrderStatus()
-                + "where ORDER_ID = " + order.getOrderID());
-        
         String query = "update ORDERS "
                 + "SET CUSTOMER_ID = " + order.getCustomerID()
                 + ", CREDIT_ID = " + order.getCreditID()+ ", PAYMENT_TYPE = " + order.getPaymentType()
