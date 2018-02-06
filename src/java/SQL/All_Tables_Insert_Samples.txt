@@ -1,8 +1,18 @@
-INSERT INTO CUSTOMERACCOUNTS VALUES (1, 'Ben', 'Ben', 'happyLane', 'Phoenix', 'AZ',805,'1111111111','username','password',0);
-INSERT INTO CUSTOMERACCOUNTS VALUES (2, 'Mike', 'Mike', 'happyLane', 'Phoenix', 'AZ',805,'1111111111','username','password',0);
-INSERT INTO CUSTOMERACCOUNTS VALUES (3, 'Ron', 'Ron', 'happyLane', 'Phoenix', 'AZ',805,'1111111111','username','password',0);
-INSERT INTO CUSTOMERACCOUNTS VALUES (4, 'Aaron', 'Aaron', 'happyLane', 'Phoenix', 'AZ',805,'1111111111','username','password',0);
-INSERT INTO CUSTOMERACCOUNTS VALUES (5, 'Carl', 'Carl', 'happyLane', 'Phoenix', 'AZ',805,'1111111111','username','password',0);
+INSERT INTO CUSTOMERS VALUES (1, 'Ben', 'Ben', 'happyLane', 'Phoenix', 'AZ',805,'111-111-1111');
+INSERT INTO CUSTOMERACCOUNTS VALUES (1, 'username1','password',0);
+INSERT INTO LOGIN VALUES('username1', 'password', 2);
+INSERT INTO CUSTOMERS VALUES (2, 'Mike', 'Mike', 'happyLane', 'Phoenix', 'AZ',805,'111-111-1111');
+INSERT INTO CUSTOMERACCOUNTS VALUES (2, 'username2','password',0);
+INSERT INTO LOGIN VALUES('username2', 'password', 2);
+INSERT INTO CUSTOMERS VALUES (3, 'Ron', 'Ron', 'happyLane', 'Phoenix', 'AZ',805,'111-111-1111');
+INSERT INTO CUSTOMERACCOUNTS VALUES (3, 'username3','password',0);
+INSERT INTO LOGIN VALUES('username3', 'password', 2);
+INSERT INTO CUSTOMERS VALUES (4, 'Aaron', 'Aaron', 'happyLane', 'Phoenix', 'AZ',805,'111-111-1111');
+INSERT INTO CUSTOMERACCOUNTS VALUES (4, 'username4','password',0);
+INSERT INTO LOGIN VALUES('username4', 'password', 2);
+INSERT INTO CUSTOMERS VALUES (5, 'Carl', 'Carl', 'happyLane', 'Phoenix', 'AZ',805,'111-111-1111');
+INSERT INTO CUSTOMERACCOUNTS VALUES (5, 'username5','password',0);
+INSERT INTO LOGIN VALUES('username5', 'password', 2);
 
 INSERT INTO CREDIT_CARDS VALUES(1,1,12345,'VISA',999,'12/DEC/2020','ben', 'happylane','phoenix',555);
 INSERT INTO CREDIT_CARDS VALUES(2,2,12345,'VISA',999,'12/DEC/2020','mike', 'happylane','phoenix',555);
