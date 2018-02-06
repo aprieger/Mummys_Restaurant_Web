@@ -5,6 +5,7 @@
 package Controller;
 
 import DAO.*;
+import Service.*;
 import domain.Login;
 import domain.Worker;
 import Model.newUser;
@@ -22,9 +23,13 @@ import org.springframework.web.servlet.view.RedirectView;
 public class LoginClass extends SimpleFormController {
     
     private LoginDAO loginDAO;
+    private UserDAO userDAO;
     
     public void setLoginDAO(LoginDAO loginDAO){
        this.loginDAO=loginDAO;
+    }
+    public void setUserDAO(UserDAO userDAO){
+       this.userDAO=userDAO;
     }
     
     public LoginClass() {
@@ -48,7 +53,7 @@ public class LoginClass extends SimpleFormController {
                 case 1:
                     return new ModelAndView(new RedirectView("admin.htm"));
                 default:
-                    long customer = new UserDOAImpl().getId(login.getLoginId());
+                    long customer = userDAO.getId(login.getLoginId());
                     session.setAttribute("customerId", customer);
                     return new ModelAndView(new RedirectView("customerhome.htm"));
             }
