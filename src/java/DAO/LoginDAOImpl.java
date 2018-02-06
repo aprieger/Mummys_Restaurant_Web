@@ -55,9 +55,7 @@ public class LoginDAOImpl implements LoginDAO {
         return l;
     } 
     
-    public String getUserId(Login login) {
-        String s = "";
-        //  BEN CREATE a query to Get Customer id        
-        return s;
+    public long getUserId(Login login) {
+        return jdbcTemplate.queryForObject("select customerid from CustomerAccounts where username='" + login + "'", Integer.class);
     }
 }
