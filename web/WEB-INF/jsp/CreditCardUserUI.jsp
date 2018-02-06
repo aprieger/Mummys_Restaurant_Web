@@ -14,8 +14,19 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>CreditCardUserUI</title>
+        <link href="css/mum.css" rel="stylesheet">
     </head>
     <body>
+        <div class="banner-img"></div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#about">About</a></li> 
+                </ul>
+            </nav>
+          </div>
         <a href="index.htm">Back to index</a>
         <h1>Credit Card User UI</h1>
         <h1>${Sname}</h1>
@@ -35,7 +46,7 @@
                 <td><p><a href="CreditCardUserUI1.htm">1. Add a new card </a></p></td>
             </tr>
             <tr>
-                <td><p><a href="">2. Pick an existing card</a></p></td>
+                <td><p><a href="CreditCardUserUI2.htm">2. Pick an existing card</a></p></td>
             </tr>
             <tr>
                 <td><p><a href="">3. Delete an existing card</a></p></td>

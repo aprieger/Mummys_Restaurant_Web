@@ -11,9 +11,20 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link href="css/mum.css" rel="stylesheet">
     </head>
     <body>
-        <a href="CreditCardAdminUI.htm">Back to Admin Page</a>
+        <div class="banner-img"></div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#about">About</a></li> 
+                </ul>
+            </nav>
+          </div>
+        <a href="CreditCardAdminUI.htm">Back to Admin Credit Page</a>
         <table>
             <tr>
                 <td>Credit ID</td>

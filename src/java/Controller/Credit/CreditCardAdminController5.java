@@ -1,3 +1,7 @@
+/*
+This class is the controller for CreditCardAdmin4.jsp
+This Controller will delete all the Credit Cards associated with a particular Credit_ID
+*/
 package Controller.Credit;
 import DAO.Credit.CreditCardDAOImpl;
 import domain.Credit.CreditCard;

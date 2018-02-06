@@ -1,3 +1,8 @@
+/*
+This class is the controller for CreditCardAdmin1.jsp
+it has one mthod that reurns a ModelAndView object and an ArrayList of CreditCard objects. 
+only the last 4 digits are returned
+*/
 package Controller.Credit;
 import DAO.Credit.CreditCardDAOImpl;
 import domain.Credit.CreditCard;
@@ -25,6 +30,9 @@ public class CreditCardAdminController1 extends SimpleFormController {
         ApplicationContext ctx=new ClassPathXmlApplicationContext("../../WEB-INF/applicationContext.xml");
         CreditCardDAOImpl cc=(CreditCardDAOImpl)ctx.getBean("CreditCardDAOImpl");
         listOfCards = (ArrayList) cc.getAllRecords();
+        
+       
+        
         
         return new ModelAndView("CreditCardAdminUI11","listOfCards",listOfCards);
     }    

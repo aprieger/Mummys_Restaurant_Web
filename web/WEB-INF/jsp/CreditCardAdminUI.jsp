@@ -15,9 +15,20 @@ session.setAttribute("Sname", name);
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>CreditCardAdminUI</title>
+        <link href="css/mum.css" rel="stylesheet">
     </head>
     <body>
-        <a href="index.htm">Back to index</a>
+        <div class="banner-img"></div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#about">About</a></li> 
+                </ul>
+            </nav>
+          </div>
+          <a href=""><h2>Edit this link to go to Admin main page</h2></a>
         <h1>Credit Card Admin UI</h1>
         <table>
             <tr>

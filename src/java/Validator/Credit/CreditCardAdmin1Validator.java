@@ -1,3 +1,7 @@
+/*
+This Validator validates form input from the JSP file of the same name
+*/
+
 package Validator.Credit;
 
 import domain.Credit.CreditCard;

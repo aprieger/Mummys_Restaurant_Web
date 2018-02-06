@@ -7,6 +7,7 @@ package Controller;
 
 import Service.OrdersDAO;
 import Model.Orders;
+import Service.PkgOrderDAO;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,12 +28,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/choosePaymentOption")
 public class ChoosePaymentOption {
     
-    private OrdersDAO ordersDAO;
     private PkgOrderDAO pkgOrderDAO;
-    
-    public void setOrdersDAO(OrdersDAO ordersDAO) {
-        this.ordersDAO = ordersDAO;
-    }
     
     public void setPkgOrderDAO (PkgOrderDAO pkgOrderDAO) {
         this.pkgOrderDAO = pkgOrderDAO;
@@ -40,17 +36,8 @@ public class ChoosePaymentOption {
     
     @RequestMapping(value = "/choosePaymentOption", method = RequestMethod.GET)
     public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response, Model model) throws Exception {
-        Orders order = new Orders();
-        //establishes an empty vessel that updated information goes into in seeAllOrders.jsp
-        model.addAttribute("orderInfo", order);
+        int customerID = Integer.parseInt(request.getSession().getAttribute("customerID").toString());
         //returns DB queried object into seeAllOrders.jsp, variable: "listOfOrders"
-        return new ModelAndView("seeAllOrders","listOfOrders",ordersDAO.getAllOrders());
-    }
-    
-    @RequestMapping(value = "/seeAllOrders", method = RequestMethod.POST)
-    public String deleteOrderRow(@ModelAttribute("orderInfo") Orders order, BindingResult result, Model model){
-        ordersDAO.deleteOrder(order.getOrderID());
-        return "redirect:/seeAllOrders.htm";
-    }
-    
+        return new ModelAndView("choosePaymentOption","pkgOrderInfo",pkgOrderDAO.getOpenPkgOrdersByCustomerAll(customerID));
+    }    
 }
