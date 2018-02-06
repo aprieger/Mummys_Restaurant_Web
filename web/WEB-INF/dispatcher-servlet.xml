@@ -247,8 +247,11 @@
         class="Controller.PackageController"
         p:packageDAO-ref="packageDAO"
         p:pkgOrderDAO-ref="pkgOrderDAO"
-        p:serviceAreaDAO-ref="serviceAreaDAO"
-        p:pkgOrderValidator-ref="pkgOrderValidator"/>
+        p:serviceAreaDAO-ref="serviceAreaDAO"/>
+	
+    <bean name="customerHomeController"
+        class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+        p:viewName="customerhome" />
 
     <bean name="packageDAO" class="Service.PackageDAOImpl"></bean>
     <bean name="pkgOrderDAO" class="Service.PkgOrderDAOImpl"></bean>
@@ -260,7 +263,7 @@
     
     <bean id="pkgOrderValidator"
         class="Validator.PkgOrderValidator"
-        p:pkgOrderDAO-ref="pkgOrderDAO"/>
+        p:pkgOrderDAO-ref="pkgOrderDAO"/>    
     
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource" p:basename="messages" />
     <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
