@@ -7,7 +7,7 @@ package Controller;
 import DAO.LoginDAO;
 import domain.Login;
 import domain.Worker;
-import domain.newUser;
+import Model.newUser;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
