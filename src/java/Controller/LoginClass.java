@@ -44,7 +44,7 @@ public class LoginClass extends SimpleFormController {
         Login login=(Login)command;
         HttpSession session;
         session = request.getSession(true);
-     
+        int paymentType = 2, creditId = 1, orderId = 0;
         try{       
           Login l = loginDAO.validateUser(login);
             switch (l.getUserType()) {
@@ -54,7 +54,11 @@ public class LoginClass extends SimpleFormController {
                     return new ModelAndView(new RedirectView("admin.htm"));
                 default:
                     long customer = userDAO.getId(login.getLoginId());
-                    session.setAttribute("customerId", customer);
+                    session.setAttribute("orderId", orderId);
+                    session.setAttribute("paymentType", paymentType);
+                    session.setAttribute("creditId", creditId);
+                    session.setAttribute("customerId", customerId);
+                    
                     return new ModelAndView(new RedirectView("customerhome.htm"));
             }
         }catch (NullPointerException e) {
