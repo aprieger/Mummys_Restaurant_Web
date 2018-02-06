@@ -7,7 +7,7 @@ package Controller;
 import DAO.LoginDAO;
 import domain.Login;
 import domain.Worker;
-//import domain.newUser;
+import domain.newUser;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -48,8 +48,8 @@ public class LoginClass extends SimpleFormController {
                 case 1:
                     return new ModelAndView(new RedirectView("admin.htm"));
                 default:
-                   // long customer = new UserDOAImpl().getId(login.getLoginId());
-                   // session.setAttribute("customerId", customer);
+                    long customer = new UserDOAImpl().getId(login.getLoginId());
+                    session.setAttribute("customerId", customer);
                     return new ModelAndView(new RedirectView("worker.htm"));
             }
         }catch (NullPointerException e) {
