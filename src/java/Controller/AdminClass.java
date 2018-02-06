@@ -38,7 +38,7 @@ public class AdminClass extends SimpleFormController {
             return new ModelAndView("redirect:adminWorkerMain.htm");
         } else if (request.getParameter("second") != null) {
         // Invoke second button, Admin customer records 
-            return new ModelAndView("redirect:adminWorkerMain.htm");
+            return new ModelAndView("redirect:editCustomers.htm");
         } else if (request.getParameter("third") != null) {
         // Invoke third button, Admin credit card records
             return new ModelAndView("redirect:adminWorkerMain.htm");
