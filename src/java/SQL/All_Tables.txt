@@ -48,11 +48,11 @@ CREATE TABLE Packages(
 Package_Id INT NOT NULL PRIMARY KEY,
 Name VARCHAR2(50),
 Description VARCHAR2(1000),
-Meal_Category NUMBER(2),
+Meal_Category VARCHAR2(50),
 Image_Source VARCHAR2(100),
 Price FLOAT(126),
-Is_Special NUMBER(2),
-Meal_Type NUMBER(2)
+Is_Special VARCHAR2(50),
+Meal_Type VARCHAR2(50)
 );
 ================================================================================
 CREATE TABLE SERVICEAREAS (
@@ -78,7 +78,7 @@ CREATE TABLE PkgOrders(
 Pkg_Order_Id INT NOT NULL PRIMARY KEY,
 Order_Id INT,
 Package_Id INT REFERENCES Packages(Package_Id),
-Customer_Id INT REFERENCES CustomerAccounts(Customer_Id),
+Customer_Id INT REFERENCES CustomerAccounts (CustomerId),
 Price_Per_Pkg FLOAT(126),
 Quantity NUMBER(5), 
 Is_Open NUMBER(2)
