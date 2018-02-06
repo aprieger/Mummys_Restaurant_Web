@@ -50,9 +50,9 @@ public class AdminWorkerMainClass extends SimpleFormController {
         if (request.getParameter("first") != null) {
         // Invoke first button 
             return new ModelAndView("redirect:adminAddWorker.htm");
-        } else if (request.getParameter("second") != null) {
-        // Invoke second button 
-            return new ModelAndView("redirect:adminDeleteWorker.htm");
+//        } else if (request.getParameter("second") != null) {
+//        // Invoke second button 
+//            return new ModelAndView("redirect:adminDeleteWorker.htm");
         } else if (request.getParameter("third") != null) {
         // Invoke third button 
             return new ModelAndView("redirect:adminEditWorker.htm");

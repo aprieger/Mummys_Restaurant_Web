@@ -2,6 +2,7 @@ package DAO;
 
 import domain.Login;
 import domain.Worker;
+import Model.newUser;
 import java.util.ArrayList;
 import java.util.List;
 import javax.sql.DataSource;

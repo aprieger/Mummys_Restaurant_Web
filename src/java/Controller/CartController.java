@@ -33,12 +33,15 @@ public class CartController{
     //View auto calls this method when the page loads (GET)
     @RequestMapping(value="/cart", method=RequestMethod.GET)
     public ModelAndView onPageLoad(Model model, HttpServletRequest request, HttpServletResponse response) {
-        //customerId = Integer.parseInt(request.getSession().getAttribute("customerId").toString());
-        customerId=1;
-        PkgOrder pkg = new PkgOrder();
-       	model.addAttribute("pkgForm", pkg);
-        model.addAttribute("subtotalPrice", pkgOrderDAO.getFinalPrice(customerId));
-        return new ModelAndView("cart", "cartPkgList", pkgOrderDAO.getOpenPkgOrdersByCustomerAll(customerId));
+        try {
+            try {
+            customerId = Integer.parseInt(request.getSession().getAttribute("customerId").toString());
+            } catch (Exception e) {customerId=1;}
+            PkgOrder pkg = new PkgOrder();
+            model.addAttribute("pkgForm", pkg);
+            model.addAttribute("subtotalPrice", pkgOrderDAO.getFinalPrice(customerId));
+            return new ModelAndView("cart", "cartPkgList", pkgOrderDAO.getOpenPkgOrdersByCustomerAll(customerId));
+        } catch (Exception e) {System.out.println(e);return new ModelAndView("redirect:/login.htm");}
     }
     
     //Form submission calls this method to handle the form using the model attribute  and performs its function

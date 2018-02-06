@@ -47,15 +47,16 @@ public class PackageController{
     @RequestMapping(value = "/package", method = RequestMethod.GET)
     public ModelAndView onPageLoad(Model model, HttpServletRequest request, HttpServletResponse response) {
         try {
-//            customerId = Integer.parseInt(request.getSession().getAttribute("customerId").toString());
-            customerId=1;
+            try {
+            customerId = Integer.parseInt(request.getSession().getAttribute("customerId").toString());
+            } catch (Exception e) {customerId=1;}
             PkgOrder pkgOrder = new PkgOrder();
             Package newPackage = packageDAO.getSinglePackageData(Integer.parseInt(request.getParameter("packageId")));
             List<ServiceArea> svcArea = serviceAreaDAO.getAllServiceAreasByPackageID(Integer.parseInt(request.getParameter("packageId")));
             model.addAttribute("formPkgOrder", pkgOrder);
             model.addAttribute("serviceAreaList", svcArea);
             return new ModelAndView("package", "packageItemDetails", newPackage);
-        } catch (Exception e) {System.out.println(e);return new ModelAndView("redirect:/index.htm");}
+        } catch (Exception e) {System.out.println(e);return new ModelAndView("redirect:/login.htm");}
     }
     //Form submission calls this method to handle the form using the model attribute  and performs its function
     @RequestMapping(value = "/package", method = RequestMethod.POST)

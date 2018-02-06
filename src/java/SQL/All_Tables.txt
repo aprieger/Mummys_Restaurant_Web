@@ -1,0 +1,96 @@
+CREATE TABLE Customers(
+    customerid int NOT NULL PRIMARY KEY,
+    firstname varchar(25),
+    lastname varchar(50),
+    Street varchar(75),
+    city varchar(30),
+    state varchar(2),
+    zip int,
+    phone varchar(12)    
+);
+================================================================================
+CREATE TABLE CustomerAccounts(
+    customerid int,
+    username varchar(25),
+    password varchar(25),
+    enabled int;
+);
+================================================================================
+CREATE TABLE CREDIT_CARDS (
+CREDIT_ID INT NOT NULL PRIMARY KEY,
+CUSTOMER_ID INT REFERENCES CUSTOMERACCOUNTS (CUSTOMER_ID),
+CARD_NUMBER INT,
+BRAND VARCHAR2(255),
+SECURITY_NUMBER INT,
+EXPERATION_DATE DATE,
+NAME_ON_CARD VARCHAR2(255),
+STREET VARCHAR2(255),
+CITY VARCHAR2(255),
+AREA_CODE INT,
+IS_DELEATED INT,
+EX_YEAR INT,
+EX_MONTH INT
+);
+================================================================================
+CREATE TABLE ORDERS (
+ORDER_ID INT NOT NULL PRIMARY KEY,
+CUSTOMER_ID NUMBER(38), 
+CREDIT_ID NUMBER(38),
+PAYMENT_TYPE NUMBER(38),
+TOTAL_PRICE NUMBER(20,2),
+STREET VARCHAR2(255),
+CITY VARCHAR2(255),
+AREA_CODE NUMBER(38),
+PHONE_NUMBER VARCHAR2(30),
+DELIVERY_DATE VARCHAR2(20),
+ORDER_DATE VARCHAR2(20),
+ORDER_STATUS NUMBER(38)
+);
+================================================================================
+CREATE TABLE Packages(
+Package_Id INT NOT NULL PRIMARY KEY,
+Name VARCHAR2(50),
+Description VARCHAR2(1000),
+Meal_Category VARCHAR2(50),
+Image_Source VARCHAR2(100),
+Price FLOAT(126),
+Is_Special VARCHAR2(50),
+Meal_Type VARCHAR2(50)
+);
+================================================================================
+CREATE TABLE SERVICEAREAS (
+AREA_ID INT NOT NULL PRIMARY KEY,
+PACKAGE_ID INT REFERENCES PACKAGES(PACKAGE_ID),
+NAME VARCHAR2(50),
+AREA_CODE INT,
+TAX_RATE FLOAT(126)
+);
+================================================================================
+Create table Workers (
+employee_id integer not null primary key, 
+first_name varchar2(50),
+last_name varchar2(75),
+gender varchar2(10),
+phone_number varchar2(20),
+login_id  varchar2(50),
+is_admin integer,
+is_active integer,
+email varchar2(100)
+);
+================================================================================
+Create table Login (
+login_id varchar2(50),
+password varchar2(50),
+user_type integer
+)};
+================================================================================
+CREATE TABLE PkgOrders(
+Pkg_Order_Id INT NOT NULL PRIMARY KEY,
+Order_Id INT,
+Package_Id INT REFERENCES Packages(Package_Id),
+Customer_Id INT REFERENCES CustomerAccounts (CustomerId),
+Price_Per_Pkg FLOAT(126),
+Quantity NUMBER(5), 
+Is_Open NUMBER(2)
+);
+================================================================================

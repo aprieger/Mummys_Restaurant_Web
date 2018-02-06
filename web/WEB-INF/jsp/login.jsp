@@ -44,7 +44,7 @@
             </tr> 
           </table> 
          </form:form>
-        <h6><a href="Register.htm">Click here to register a new account.</a></h6>
+        <h6><a href="signup.htm">Click here to register a new account.</a></h6>
         <h6><a href="ChangePassword.htm">Forgot password? Click to change password.</a></h6>
     </div>
   </body>
