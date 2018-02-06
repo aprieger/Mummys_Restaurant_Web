@@ -67,12 +67,19 @@ Create table Workers (
 employee_id integer not null primary key, 
 first_name varchar2(50),
 last_name varchar2(75),
-user_id varchar2(20),
-password varchar2(20),
+gender varchar2(10),
 phone_number varchar2(20),
+login_id  varchar2(50),
 is_admin integer,
-is_active integer
+is_active integer,
+email varchar2(100)
 );
+================================================================================
+Create table Login (
+login_id varchar2(50),
+password varchar2(50),
+user_type integer
+)};
 ================================================================================
 CREATE TABLE PkgOrders(
 Pkg_Order_Id INT NOT NULL PRIMARY KEY,
