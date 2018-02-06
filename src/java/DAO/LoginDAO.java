@@ -12,5 +12,6 @@ public interface LoginDAO {
     public Login validateUser(Login login);
     public Worker assignUser(Login login);
     public List<Login> getSystemUsers();
-    public List<Login> changePassword(Login login);  
+    public List<Login> changePassword(Login login);
+    public String getUserId(Login login);
 }

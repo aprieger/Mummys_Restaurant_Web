@@ -67,13 +67,12 @@ public class WorkerDAOImpl implements WorkerDAO {
     // Method to query the Workers database and Update a worker record
     @Override
     public void edit(Worker worker) {
-        String p_query="update Workers set values(?,?,?,?,?,?,?,?)";
-        jdbcTemplate.update(p_query, new Object[]{
-            worker.getEmployeeId(),worker.getFirstName(),worker.getLastName(),
-            worker.getGender(), worker.getPhoneNumber(),
-            worker.getLoginId(), worker.getIsAdmin(),worker.getIsActive()});
+        String p_query="update Workers set first_name='"+worker.getFirstName()+
+                 "', last_name='"+worker.getLastName()+"', gender='"+worker.getGender()+
+                 "', phone_number='"+worker.getPhoneNumber()+"', is_admin="+worker.getIsAdmin()+
+                 ", is_active="+worker.getIsActive()+" where employee_id="+worker.getEmployeeId();
+        jdbcTemplate.update(p_query);
     }
-
     // Method to delete a worker and login record from the Workers and Login databases
     @Override
     public void delete(Worker worker) throws NullPointerException{

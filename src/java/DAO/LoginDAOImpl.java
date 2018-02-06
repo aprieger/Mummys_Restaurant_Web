@@ -2,6 +2,7 @@ package DAO;
 
 import domain.Login;
 import domain.Worker;
+import java.util.ArrayList;
 import java.util.List;
 import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -53,5 +54,10 @@ public class LoginDAOImpl implements LoginDAO {
         List<Login> l = jdbcTemplate.query(sql, new LoginRowMapper());
         return l;
     } 
-
+    
+    public String getUserId(Login login) {
+        String s = "";
+        //  BEN CREATE a query to Get Customer id        
+        return s;
+    }
 }

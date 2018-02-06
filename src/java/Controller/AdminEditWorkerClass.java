@@ -5,6 +5,10 @@ import DAO.WorkerDAO;
 import domain.Worker;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.request;
+import org.springframework.validation.BindException;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
 import org.springframework.web.servlet.view.RedirectView;
@@ -28,14 +32,26 @@ public class AdminEditWorkerClass extends SimpleFormController {
     }
     
     @Override
-    protected ModelAndView onSubmit(Object command) throws Exception{
-       Worker w =(Worker)command;
-        List<Worker> worker = new ArrayList<>();
+    protected ModelAndView onSubmit(HttpServletRequest request,
+    HttpServletResponse response, Object command, BindException errors){
        try{ 
-        worker = workerDAO.findById(w.getEmployeeId());
-        return new ModelAndView("redirect:adminEditWorkerView.htm","worker",worker.get(0));
-       }catch(NullPointerException e){
-           return new ModelAndView(new RedirectView("adminEditWorker"));
+        
+        if (request.getParameter("find") != null) {
+        // Invoke first button, Admin worker records
+            Worker worker = (Worker) command;
+            List<Worker> workers = new ArrayList<>();
+            workers = workerDAO.findById(worker.getEmployeeId());
+            return new ModelAndView("adminEditWorkerView","worker",workers.get(0));
+        } else if (request.getParameter("edit") != null) {
+        // Invoke second button, Admin customer records 
+            Worker worker = (Worker) command; 
+            System.out.println(worker.toString());
+            workerDAO.edit(worker);
+            return new ModelAndView("adminEditWorkerSuccess","worker",worker);
+        } else {
+            return null;
+       }} catch(NullPointerException e) {
+            return new ModelAndView(new RedirectView("adminDeleteWorker"));
        }
     }
 }

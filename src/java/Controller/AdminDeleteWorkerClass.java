@@ -39,19 +39,21 @@ public class AdminDeleteWorkerClass extends SimpleFormController {
     @RequestMapping("/adminDeleteWorkerView")
     protected ModelAndView onSubmit(HttpServletRequest request,
     HttpServletResponse response, Object command, BindException errors) {
-       Worker worker = (Worker) command;
-       List<Worker> workers = new ArrayList<>();
+       
             
        try{
            if (request.getParameter("find") != null) {
         // Invoke first button, Admin worker records
+            Worker worker = (Worker) command;
+             List<Worker> workers = new ArrayList<>();
             workers = workerDAO.findById(worker.getEmployeeId());
             return new ModelAndView("adminDeleteWorkerView","listOfWorkers",workers);
         } else if (request.getParameter("delete") != null) {
         // Invoke second button, Admin customer records 
             System.out.println("IN DELETE");
-               
-            workerDAO.delete(workers.get(0));
+            Worker worker = (Worker) command; 
+            System.out.println(worker.toString());
+            workerDAO.delete(worker);
             return new ModelAndView("adminDeleteWorkerSuccess","worker",worker);
        }} catch(NullPointerException e) {
             return new ModelAndView(new RedirectView("adminDeleteWorker"));

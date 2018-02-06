@@ -86,4 +86,9 @@ public class Worker {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @Override
+    public String toString() {
+        return "Worker{" + "firstName=" + firstName + ", lastName=" + lastName + ", loginId=" + loginId + ", gender=" + gender + ", phoneNumber=" + phoneNumber + ", employeeId=" + employeeId + ", isAdmin=" + isAdmin + ", isActive=" + isActive + ", email=" + email + '}';
+    }
 }

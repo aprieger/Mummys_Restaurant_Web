@@ -7,6 +7,7 @@ package Controller;
 import DAO.LoginDAO;
 import domain.Login;
 import domain.Worker;
+//import domain.newUser;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -32,38 +33,28 @@ public class LoginClass extends SimpleFormController {
     }
     
     @Override
-    protected ModelAndView onSubmit(Object command )
+    protected ModelAndView onSubmit(HttpServletRequest request,
+     HttpServletResponse response, Object command, BindException errors)
     throws Exception {
         Login login=(Login)command;
-        /*
-         *** can put your SQL queries here in this method ***
-       */
+        HttpSession session;
+        session = request.getSession(true);
      
         try{       
           Login l = loginDAO.validateUser(login);
             switch (l.getUserType()) {
                 case 0:
-//                    HttpSession session = request.getSession();
                     return new ModelAndView(new RedirectView("worker.htm"));
                 case 1:
-//                    Worker admin = loginDAO.assignUser(login);
                     return new ModelAndView(new RedirectView("admin.htm"));
                 default:
-//                    Worker work = (Worker) loginfDAO.assignUser(login);
-//                    return new ModelAndView("loginSuccess","worker",work);
+                   // long customer = new UserDOAImpl().getId(login.getLoginId());
+                   // session.setAttribute("customerId", customer);
                     return new ModelAndView(new RedirectView("worker.htm"));
             }
         }catch (NullPointerException e) {
             
           return new ModelAndView(new RedirectView("login.htm"));
         }
-    //Use onSubmit instead of doSubmitAction 
-    //when you need access to the Request, Response, or BindException objects
-    /*
-     * @Override protected ModelAndView onSubmit( HttpServletRequest request,
-     * HttpServletResponse response, Object command, BindException errors)
-     * throws Exception { ModelAndView mv = new ModelAndView(getSuccessView());
-     * //Do something... return mv; }
-     */
     }
 }
